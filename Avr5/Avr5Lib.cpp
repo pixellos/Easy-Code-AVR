@@ -14,14 +14,15 @@
 
  namespace CodeEasyAvr{
  	  enum Prescalers {
-		  Stop,
-	 	  Prescaler_1,
-	 	  Prescaler_8,
-	 	  Prescaler_64,
-	 	  Prescaler_256,
-	 	  Prescaler_1024,
-		  External_Falling,
-		  External_Rising
+		  Stop = 0,
+	 	  Prescaler_1 = CS00,
+	 	  Prescaler_8 = CS01,
+	 	  Prescaler_64 = CS01 || CS00,
+	 	  Prescaler_256 = CS02,
+	 	  Prescaler_1024 = CS02||CS00,
+		  External_Falling = CS02 || CS01,
+		  External_Rising = CS02 || CS01 || CS00,
+		  AllBitsSet = External_Rising
  	  };
 
  	  enum WaveForms{
@@ -54,6 +55,14 @@
 		}
 
   };*/
+		/////Reset prescaller timer 1 and 0
+		static void ResetPrescaler(){
+		SET(SFIOR,PSR10);
+		}
+
+		static void Prescaler(Prescalers prescaler){
+			CLEAR(TCCR0,AllBitsSet);
+		}
 		static void WaveFormMode(WaveForms waveForms){
 			CLEAR(TCCR0,WGM01||WGM00);
 			SET(TCCR0,waveForms);
