@@ -29,14 +29,15 @@
 	 	  Normal = 0,
 	 	  PWM_PhaseCorrect = WGM00,
 	 	  CTC = (WGM00||WGM01),
-	 	  PWM_Fast = WGM01
+	 	  PWM_Fast = WGM01,
+		  AllBitsSet = CTC;
  	  };
 
 		enum OutputCounterMode{
 			Disconnected = 0,
 			Toggle_Or_Reserved = COM00,
 			Clear = COM01,
-			Set = COM00,
+			Set = COM00||COM01,
 	  };
 
  //8bit Timer/Counter0 with PWM
@@ -57,7 +58,7 @@
   };*/
 		/////Reset prescaller timer 1 and 0
 		static void ResetPrescaler(){
-		SET(SFIOR,PSR10);
+			SET(SFIOR,PSR10);
 		}
 
 		static void Prescaler(Prescalers prescaler){
