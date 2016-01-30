@@ -1,64 +1,23 @@
+/*AUTO GENERATED CODE BY MATEUSZ POPIELARZ pixdevlife.azurewebsites.net
+            Project Easy::CodeGenerator
+            */
+			/*
+class Base{};
 
-
-    class PortA{
-        public:
-	    void static SetBits(uint8_t uCharValue)
-       {
-            PORTA |= uCharValue;
-       }
-        
-        void static Set()
-       {
-            PORTA = 0xff;
-       }
-
-        void static ClearBits(uint8_t uCharValue)
-       {
-            PORTA &= ~(uCharValue);
-       }
-
-         void static Clear()
-       {
-            PORTA = 0;
-       }
-
-        void static ToggleBits(uint8_t uCharValue)
-       {
-            PORTA ^= uCharValue;
-       }
-        void static Toggle()
-       {
-            PORTA ^= 0xff;
-       }
-
-        bool static Check()
-       {
-            return PINA;
-       }
-        
-        void static AsOutput()
-       {
-            DDRA = 0xff;
-       }
-        void static AsInput()
-       {
-            DDRA = 0;
-       }
-
-        void static AsOutputBits(uint8_t uCharValue)
-       {
-            DDRA |= (uCharValue);
-       }
-
-        void static AsInputBits(uint8_t uCharValue)
-       {
-            DDRA &= ~uCharValue;
-       }
-       };
-
-    class Pin_A0{
+template<uint8_t Ddr,uint8_t Port,uint8_t Pins, uint8_t PinNum>
+class Pin : public Base
+{
 public:
-	    void static Set()
+	static uint8_t DDR = Ddr;
+	static uint8_t PORT = Port;
+	static uint8_t PIN = Pins;
+	static uint8_t PinNumber = PinNum;
+};
+
+
+class Pin_A0:public Pin<PORTA,PINA,DDRA,0>{
+public:
+void static Set()
 	    {
 		    PORTA |= 1 << 0;
 	    }
@@ -68,7 +27,7 @@ public:
 		    PORTA &= ~(1<<0);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<0);
 	    }
@@ -87,11 +46,12 @@ public:
 	    {
 		    DDRA &= !(1<<0);
 	    }
-        };
 
-    class Pin_A1{
+};
+
+class Pin_A1:public Pin<PORTA,PINA,DDRA,1>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 1;
 	    }
@@ -101,7 +61,7 @@ public:
 		    PORTA &= ~(1<<1);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<1);
 	    }
@@ -120,11 +80,12 @@ public:
 	    {
 		    DDRA &= !(1<<1);
 	    }
-        };
 
-    class Pin_A2{
+};
+
+class Pin_A2:public Pin<PORTA,PINA,DDRA,2>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 2;
 	    }
@@ -134,7 +95,7 @@ public:
 		    PORTA &= ~(1<<2);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<2);
 	    }
@@ -153,11 +114,12 @@ public:
 	    {
 		    DDRA &= !(1<<2);
 	    }
-        };
 
-    class Pin_A3{
+};
+
+class Pin_A3:public Pin<PORTA,PINA,DDRA,3>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 3;
 	    }
@@ -167,7 +129,7 @@ public:
 		    PORTA &= ~(1<<3);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<3);
 	    }
@@ -186,11 +148,12 @@ public:
 	    {
 		    DDRA &= !(1<<3);
 	    }
-        };
 
-    class Pin_A4{
+};
+
+class Pin_A4:public Pin<PORTA,PINA,DDRA,4>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 4;
 	    }
@@ -200,7 +163,7 @@ public:
 		    PORTA &= ~(1<<4);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<4);
 	    }
@@ -219,11 +182,12 @@ public:
 	    {
 		    DDRA &= !(1<<4);
 	    }
-        };
 
-    class Pin_A5{
+};
+
+class Pin_A5:public Pin<PORTA,PINA,DDRA,5>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 5;
 	    }
@@ -233,7 +197,7 @@ public:
 		    PORTA &= ~(1<<5);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<5);
 	    }
@@ -252,11 +216,12 @@ public:
 	    {
 		    DDRA &= !(1<<5);
 	    }
-        };
 
-    class Pin_A6{
+};
+
+class Pin_A6:public Pin<PORTA,PINA,DDRA,6>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 6;
 	    }
@@ -266,7 +231,7 @@ public:
 		    PORTA &= ~(1<<6);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<6);
 	    }
@@ -285,11 +250,12 @@ public:
 	    {
 		    DDRA &= !(1<<6);
 	    }
-        };
 
-    class Pin_A7{
+};
+
+class Pin_A7:public Pin<PORTA,PINA,DDRA,7>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTA |= 1 << 7;
 	    }
@@ -299,7 +265,7 @@ public:
 		    PORTA &= ~(1<<7);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTA ^= (1<<7);
 	    }
@@ -318,67 +284,12 @@ public:
 	    {
 		    DDRA &= !(1<<7);
 	    }
-        };
 
-    class PortB{
-        public:
-	    void static SetBits(uint8_t uCharValue)
-       {
-            PORTB |= uCharValue;
-       }
-        
-        void static Set()
-       {
-            PORTB = 0xff;
-       }
+};
 
-        void static ClearBits(uint8_t uCharValue)
-       {
-            PORTB &= ~(uCharValue);
-       }
-
-         void static Clear()
-       {
-            PORTB = 0;
-       }
-
-        void static ToggleBits(uint8_t uCharValue)
-       {
-            PORTB ^= uCharValue;
-       }
-        void static Toggle()
-       {
-            PORTB ^= 0xff;
-       }
-
-        bool static Check()
-       {
-            return PINB;
-       }
-        
-        void static AsOutput()
-       {
-            DDRB = 0xff;
-       }
-        void static AsInput()
-       {
-            DDRB = 0;
-       }
-
-        void static AsOutputBits(uint8_t uCharValue)
-       {
-            DDRB |= (uCharValue);
-       }
-
-        void static AsInputBits(uint8_t uCharValue)
-       {
-            DDRB &= ~uCharValue;
-       }
-       };
-
-    class Pin_B0{
+class Pin_B0:public Pin<PORTB,PINB,DDRB,0>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 0;
 	    }
@@ -388,7 +299,7 @@ public:
 		    PORTB &= ~(1<<0);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<0);
 	    }
@@ -407,11 +318,12 @@ public:
 	    {
 		    DDRB &= !(1<<0);
 	    }
-        };
 
-    class Pin_B1{
+};
+
+class Pin_B1:public Pin<PORTB,PINB,DDRB,1>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 1;
 	    }
@@ -421,7 +333,7 @@ public:
 		    PORTB &= ~(1<<1);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<1);
 	    }
@@ -440,11 +352,12 @@ public:
 	    {
 		    DDRB &= !(1<<1);
 	    }
-        };
 
-    class Pin_B2{
+};
+
+class Pin_B2:public Pin<PORTB,PINB,DDRB,2>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 2;
 	    }
@@ -454,7 +367,7 @@ public:
 		    PORTB &= ~(1<<2);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<2);
 	    }
@@ -473,11 +386,12 @@ public:
 	    {
 		    DDRB &= !(1<<2);
 	    }
-        };
 
-    class Pin_B3{
+};
+
+class Pin_B3:public Pin<PORTB,PINB,DDRB,3>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 3;
 	    }
@@ -487,7 +401,7 @@ public:
 		    PORTB &= ~(1<<3);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<3);
 	    }
@@ -506,11 +420,12 @@ public:
 	    {
 		    DDRB &= !(1<<3);
 	    }
-        };
 
-    class Pin_B4{
+};
+
+class Pin_B4:public Pin<PORTB,PINB,DDRB,4>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 4;
 	    }
@@ -520,7 +435,7 @@ public:
 		    PORTB &= ~(1<<4);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<4);
 	    }
@@ -539,11 +454,12 @@ public:
 	    {
 		    DDRB &= !(1<<4);
 	    }
-        };
 
-    class Pin_B5{
+};
+
+class Pin_B5:public Pin<PORTB,PINB,DDRB,5>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 5;
 	    }
@@ -553,7 +469,7 @@ public:
 		    PORTB &= ~(1<<5);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<5);
 	    }
@@ -572,11 +488,12 @@ public:
 	    {
 		    DDRB &= !(1<<5);
 	    }
-        };
 
-    class Pin_B6{
+};
+
+class Pin_B6:public Pin<PORTB,PINB,DDRB,6>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 6;
 	    }
@@ -586,7 +503,7 @@ public:
 		    PORTB &= ~(1<<6);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<6);
 	    }
@@ -605,11 +522,12 @@ public:
 	    {
 		    DDRB &= !(1<<6);
 	    }
-        };
 
-    class Pin_B7{
+};
+
+class Pin_B7:public Pin<PORTB,PINB,DDRB,7>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTB |= 1 << 7;
 	    }
@@ -619,7 +537,7 @@ public:
 		    PORTB &= ~(1<<7);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTB ^= (1<<7);
 	    }
@@ -638,67 +556,12 @@ public:
 	    {
 		    DDRB &= !(1<<7);
 	    }
-        };
 
-    class PortC{
-        public:
-	    void static SetBits(uint8_t uCharValue)
-       {
-            PORTC |= uCharValue;
-       }
-        
-        void static Set()
-       {
-            PORTC = 0xff;
-       }
+};
 
-        void static ClearBits(uint8_t uCharValue)
-       {
-            PORTC &= ~(uCharValue);
-       }
-
-         void static Clear()
-       {
-            PORTC = 0;
-       }
-
-        void static ToggleBits(uint8_t uCharValue)
-       {
-            PORTC ^= uCharValue;
-       }
-        void static Toggle()
-       {
-            PORTC ^= 0xff;
-       }
-
-        bool static Check()
-       {
-            return PINC;
-       }
-        
-        void static AsOutput()
-       {
-            DDRC = 0xff;
-       }
-        void static AsInput()
-       {
-            DDRC = 0;
-       }
-
-        void static AsOutputBits(uint8_t uCharValue)
-       {
-            DDRC |= (uCharValue);
-       }
-
-        void static AsInputBits(uint8_t uCharValue)
-       {
-            DDRC &= ~uCharValue;
-       }
-       };
-
-    class Pin_C0{
+class Pin_C0:public Pin<PORTC,PINC,DDRC,0>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 0;
 	    }
@@ -708,7 +571,7 @@ public:
 		    PORTC &= ~(1<<0);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<0);
 	    }
@@ -727,11 +590,12 @@ public:
 	    {
 		    DDRC &= !(1<<0);
 	    }
-        };
 
-    class Pin_C1{
+};
+
+class Pin_C1:public Pin<PORTC,PINC,DDRC,1>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 1;
 	    }
@@ -741,7 +605,7 @@ public:
 		    PORTC &= ~(1<<1);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<1);
 	    }
@@ -760,11 +624,12 @@ public:
 	    {
 		    DDRC &= !(1<<1);
 	    }
-        };
 
-    class Pin_C2{
+};
+
+class Pin_C2:public Pin<PORTC,PINC,DDRC,2>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 2;
 	    }
@@ -774,7 +639,7 @@ public:
 		    PORTC &= ~(1<<2);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<2);
 	    }
@@ -793,11 +658,12 @@ public:
 	    {
 		    DDRC &= !(1<<2);
 	    }
-        };
 
-    class Pin_C3{
+};
+
+class Pin_C3:public Pin<PORTC,PINC,DDRC,3>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 3;
 	    }
@@ -807,7 +673,7 @@ public:
 		    PORTC &= ~(1<<3);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<3);
 	    }
@@ -826,11 +692,12 @@ public:
 	    {
 		    DDRC &= !(1<<3);
 	    }
-        };
 
-    class Pin_C4{
+};
+
+class Pin_C4:public Pin<PORTC,PINC,DDRC,4>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 4;
 	    }
@@ -840,7 +707,7 @@ public:
 		    PORTC &= ~(1<<4);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<4);
 	    }
@@ -859,11 +726,12 @@ public:
 	    {
 		    DDRC &= !(1<<4);
 	    }
-        };
 
-    class Pin_C5{
+};
+
+class Pin_C5:public Pin<PORTC,PINC,DDRC,5>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 5;
 	    }
@@ -873,7 +741,7 @@ public:
 		    PORTC &= ~(1<<5);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<5);
 	    }
@@ -892,11 +760,12 @@ public:
 	    {
 		    DDRC &= !(1<<5);
 	    }
-        };
 
-    class Pin_C6{
+};
+
+class Pin_C6:public Pin<PORTC,PINC,DDRC,6>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 6;
 	    }
@@ -906,7 +775,7 @@ public:
 		    PORTC &= ~(1<<6);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<6);
 	    }
@@ -925,11 +794,12 @@ public:
 	    {
 		    DDRC &= !(1<<6);
 	    }
-        };
 
-    class Pin_C7{
+};
+
+class Pin_C7:public Pin<PORTC,PINC,DDRC,7>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTC |= 1 << 7;
 	    }
@@ -939,7 +809,7 @@ public:
 		    PORTC &= ~(1<<7);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTC ^= (1<<7);
 	    }
@@ -958,67 +828,12 @@ public:
 	    {
 		    DDRC &= !(1<<7);
 	    }
-        };
 
-    class PortD{
-        public:
-	    void static SetBits(uint8_t uCharValue)
-       {
-            PORTD |= uCharValue;
-       }
-        
-        void static Set()
-       {
-            PORTD = 0xff;
-       }
+};
 
-        void static ClearBits(uint8_t uCharValue)
-       {
-            PORTD &= ~(uCharValue);
-       }
-
-         void static Clear()
-       {
-            PORTD = 0;
-       }
-
-        void static ToggleBits(uint8_t uCharValue)
-       {
-            PORTD ^= uCharValue;
-       }
-        void static Toggle()
-       {
-            PORTD ^= 0xff;
-       }
-
-        bool static Check()
-       {
-            return PIND;
-       }
-        
-        void static AsOutput()
-       {
-            DDRD = 0xff;
-       }
-        void static AsInput()
-       {
-            DDRD = 0;
-       }
-
-        void static AsOutputBits(uint8_t uCharValue)
-       {
-            DDRD |= (uCharValue);
-       }
-
-        void static AsInputBits(uint8_t uCharValue)
-       {
-            DDRD &= ~uCharValue;
-       }
-       };
-
-    class Pin_D0{
+class Pin_D0:public Pin<PORTD,PIND,DDRD,0>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 0;
 	    }
@@ -1028,7 +843,7 @@ public:
 		    PORTD &= ~(1<<0);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<0);
 	    }
@@ -1047,11 +862,12 @@ public:
 	    {
 		    DDRD &= !(1<<0);
 	    }
-        };
 
-    class Pin_D1{
+};
+
+class Pin_D1:public Pin<PORTD,PIND,DDRD,1>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 1;
 	    }
@@ -1061,7 +877,7 @@ public:
 		    PORTD &= ~(1<<1);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<1);
 	    }
@@ -1080,11 +896,12 @@ public:
 	    {
 		    DDRD &= !(1<<1);
 	    }
-        };
 
-    class Pin_D2{
+};
+
+class Pin_D2:public Pin<PORTD,PIND,DDRD,2>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 2;
 	    }
@@ -1094,7 +911,7 @@ public:
 		    PORTD &= ~(1<<2);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<2);
 	    }
@@ -1113,11 +930,12 @@ public:
 	    {
 		    DDRD &= !(1<<2);
 	    }
-        };
 
-    class Pin_D3{
+};
+
+class Pin_D3:public Pin<PORTD,PIND,DDRD,3>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 3;
 	    }
@@ -1127,7 +945,7 @@ public:
 		    PORTD &= ~(1<<3);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<3);
 	    }
@@ -1146,11 +964,11 @@ public:
 	    {
 		    DDRD &= !(1<<3);
 	    }
-        };
+}
 
-    class Pin_D4{
+class Pin_D4:public Pin<PORTD,PIND,DDRD,4>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 4;
 	    }
@@ -1160,7 +978,7 @@ public:
 		    PORTD &= ~(1<<4);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<4);
 	    }
@@ -1179,11 +997,12 @@ public:
 	    {
 		    DDRD &= !(1<<4);
 	    }
-        };
 
-    class Pin_D5{
+};
+
+class Pin_D5:public Pin<PORTD,PIND,DDRD,5>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 5;
 	    }
@@ -1193,7 +1012,7 @@ public:
 		    PORTD &= ~(1<<5);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<5);
 	    }
@@ -1212,11 +1031,12 @@ public:
 	    {
 		    DDRD &= !(1<<5);
 	    }
-        };
 
-    class Pin_D6{
+};
+
+class Pin_D6:public Pin<PORTD,PIND,DDRD,6>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 6;
 	    }
@@ -1226,7 +1046,7 @@ public:
 		    PORTD &= ~(1<<6);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<6);
 	    }
@@ -1245,11 +1065,12 @@ public:
 	    {
 		    DDRD &= !(1<<6);
 	    }
-        };
 
-    class Pin_D7{
+};
+
+class Pin_D7:public Pin<PORTD,PIND,DDRD,7>{
 public:
-	    void static Set()
+void static Set()
 	    {
 		    PORTD |= 1 << 7;
 	    }
@@ -1259,7 +1080,7 @@ public:
 		    PORTD &= ~(1<<7);
 	    }
 
-	    void static Toggle()
+	    void static Toggle() 
 	    {
 		    PORTD ^= (1<<7);
 	    }
@@ -1278,4 +1099,6 @@ public:
 	    {
 		    DDRD &= !(1<<7);
 	    }
-        };
+
+};
+}*/

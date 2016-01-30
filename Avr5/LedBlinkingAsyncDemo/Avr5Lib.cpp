@@ -132,8 +132,8 @@
 			enum class WaveForms{
 				Normal = 0,
 				PWM_PhaseCorrect = (1<<WGM00),
-				CTC = ((1<<WGM00)||(1<<WGM01)),
-				PWM_Fast = (1<<WGM01)
+				CTC = (1<<WGM01),
+				PWM_Fast = ((1<<WGM00)||(1<<WGM01))
 			};
 
 			enum class OutputCounterMode{
