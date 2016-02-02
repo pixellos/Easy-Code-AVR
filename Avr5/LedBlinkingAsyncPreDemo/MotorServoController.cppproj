@@ -54,11 +54,11 @@
       <ToolName>Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
     <avrtoolinterface>ISP</avrtoolinterface>
-    <avrtoolinterfaceclock>125000</avrtoolinterfaceclock>
+    <avrtoolinterfaceclock>1000000</avrtoolinterfaceclock>
     <com_atmel_avrdbg_tool_ispmk2>
       <ToolOptions>
         <InterfaceProperties>
-          <IspClock>125000</IspClock>
+          <IspClock>1000000</IspClock>
         </InterfaceProperties>
         <InterfaceName>ISP</InterfaceName>
       </ToolOptions>
@@ -176,31 +176,31 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Async.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="Avr5Lib.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="avrpindef.h">
+    <Compile Include="Atmega16A_SPL.hpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Avr5Lib.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="CppHelpers.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="GenTest.h">
+    <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="main.cpp">
+    <Compile Include="MainAsyncChainedTaskManager.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="TaskManager.hpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Oled\Oled.cpp">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ToGeneratorSample.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="V2.h">
+    <Compile Include="Atmega16A_SPL.cpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Async.h
 *
 * Created: 29/01/2016 11:31:15
@@ -7,15 +7,16 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 
-typedef void(*Action)();
+typedef void (*Action)();
 #define __FIXED_TIME_ASYNC__
 //#define __
 
 
 #ifndef __ASYNC_H__
 #define __ASYNC_H__
-class Task {
-	public:
+
+class Task{
+public:
 	int AlocateNumber;
 	Action currentMethod = nullptr;
 	Action chainedMethod = nullptr;
@@ -25,24 +26,26 @@ class Task {
 #pragma message("It's vaild for 16MHZ - if you have less set your own Timer0 Compare Value and Prescaler to get 1/8ms per tick")
 
 using namespace CodeEasyAvr;
-class Async
-{
-	public:
-	void static EnableAsync(/*You must enable interrupts*/ ) 
+
+class Async{
+public:
+	void static EnableAsync(/*You must enable interrupts*/)
 	{ // 2000 instructions per task - 1ms task resolution CAREFULL: Exit mail will erase interrupt SREG
 		Timer0::SetCompareValue(7); // Why 7? When we get 16mhz, divide it 8 (8 tasks), we get 2mhz, divide it 8*256 its 2048 - 1 ms -
 		Timer0::WaveFormMode(Timer0::WaveForms::CTC);
 		Timer0::SetInterrupts(CodeEasyAvr::Timer0::CompareMatchInterrupt);
 		Timer0::SetPrescaler(Timer0::Prescalers::Prescaler_256);
 	}
+
 	//Fixed time version
-	class TaskManager {
-		public:
+	class TaskManager{
+	public:
 		static const uint8_t NumberOfActions = 8;
 
-		
+
 		Action actions[NumberOfActions];
 		uint8_t currentTask;
+
 		TaskManager()
 		{
 			currentTask = 0;
@@ -51,26 +54,28 @@ class Async
 				actions[i] = nullptr;
 			}
 		}
-				void UnsafeRegister(Task& task, uint8_t positionIndicator)
-				{
-					actions[positionIndicator] = (task.currentMethod);
-					task.AlocateNumber = positionIndicator;
-				}//Potentialy dangerous - do not use it unless you dont know what are you doing
 
-				void UnsafeUnregister(Task& task)
-				{
-					actions[task.AlocateNumber] = nullptr;
-					task.AlocateNumber = 255;
-				}
+		void UnsafeRegister(Task& task, uint8_t positionIndicator)
+		{
+			actions[positionIndicator] = (task.currentMethod);
+			task.AlocateNumber = positionIndicator;
+		}//Potentialy dangerous - do not use it unless you dont know what are you doing
 
-				void GetNext()
-				{
-					++currentTask;
-					if (currentTask >= NumberOfActions)
-					{
-						currentTask = 0;
-					}
-				}
+		void UnsafeUnregister(Task& task)
+		{
+			actions[task.AlocateNumber] = nullptr;
+			task.AlocateNumber = 255;
+		}
+
+		void GetNext()
+		{
+			++currentTask;
+			if (currentTask >= NumberOfActions)
+			{
+				currentTask = 0;
+			}
+		}
+
 		void Invoke()
 		{
 			if (actions[currentTask] != nullptr)
@@ -105,8 +110,9 @@ class Async
 
 Async::TaskManager taskManager;
 
-ISR(TIMER0_COMP_vect)
+ISR (TIMER0_COMP_vect)
 {
 	taskManager.Invoke();
 }
 #endif //__ASYNC_H__
+
