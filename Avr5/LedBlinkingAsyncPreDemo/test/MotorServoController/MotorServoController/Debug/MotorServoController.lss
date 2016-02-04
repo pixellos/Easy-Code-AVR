@@ -1,0 +1,3408 @@
+
+MotorServoController.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000f92  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         000000aa  00800060  00000f92  00001026  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000027  0080010a  0080010a  000010d0  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000010d0  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001100  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000240  00000000  00000000  0000113c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00003417  00000000  00000000  0000137c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000060f  00000000  00000000  00004793  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000bd7  00000000  00000000  00004da2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000624  00000000  00000000  0000597c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    000091b1  00000000  00000000  00005fa0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00001071  00000000  00000000  0000f151  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000518  00000000  00000000  000101c2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  00000f5c  00000000  00000000  000106da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2c 00 	jmp	0x58	; 0x58 <__dtors_end>
+   4:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+   8:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+   c:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  10:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  14:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  18:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  1c:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  20:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  24:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  28:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  2c:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  30:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  34:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  38:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  3c:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  40:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  44:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  48:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+  4c:	0c 94 14 01 	jmp	0x228	; 0x228 <__vector_19>
+  50:	0c 94 54 00 	jmp	0xa8	; 0xa8 <__bad_interrupt>
+
+00000054 <__ctors_start>:
+  54:	64 06       	cpc	r6, r20
+
+00000056 <__ctors_end>:
+  56:	79 06       	cpc	r7, r25
+
+00000058 <__dtors_end>:
+  58:	11 24       	eor	r1, r1
+  5a:	1f be       	out	0x3f, r1	; 63
+  5c:	cf e5       	ldi	r28, 0x5F	; 95
+  5e:	d4 e0       	ldi	r29, 0x04	; 4
+  60:	de bf       	out	0x3e, r29	; 62
+  62:	cd bf       	out	0x3d, r28	; 61
+
+00000064 <__do_copy_data>:
+  64:	11 e0       	ldi	r17, 0x01	; 1
+  66:	a0 e6       	ldi	r26, 0x60	; 96
+  68:	b0 e0       	ldi	r27, 0x00	; 0
+  6a:	e2 e9       	ldi	r30, 0x92	; 146
+  6c:	ff e0       	ldi	r31, 0x0F	; 15
+  6e:	02 c0       	rjmp	.+4      	; 0x74 <__do_copy_data+0x10>
+  70:	05 90       	lpm	r0, Z+
+  72:	0d 92       	st	X+, r0
+  74:	aa 30       	cpi	r26, 0x0A	; 10
+  76:	b1 07       	cpc	r27, r17
+  78:	d9 f7       	brne	.-10     	; 0x70 <__do_copy_data+0xc>
+
+0000007a <__do_clear_bss>:
+  7a:	21 e0       	ldi	r18, 0x01	; 1
+  7c:	aa e0       	ldi	r26, 0x0A	; 10
+  7e:	b1 e0       	ldi	r27, 0x01	; 1
+  80:	01 c0       	rjmp	.+2      	; 0x84 <.do_clear_bss_start>
+
+00000082 <.do_clear_bss_loop>:
+  82:	1d 92       	st	X+, r1
+
+00000084 <.do_clear_bss_start>:
+  84:	a1 33       	cpi	r26, 0x31	; 49
+  86:	b2 07       	cpc	r27, r18
+  88:	e1 f7       	brne	.-8      	; 0x82 <.do_clear_bss_loop>
+
+0000008a <__do_global_ctors>:
+  8a:	10 e0       	ldi	r17, 0x00	; 0
+  8c:	cb e2       	ldi	r28, 0x2B	; 43
+  8e:	d0 e0       	ldi	r29, 0x00	; 0
+  90:	04 c0       	rjmp	.+8      	; 0x9a <__do_global_ctors+0x10>
+  92:	21 97       	sbiw	r28, 0x01	; 1
+  94:	fe 01       	movw	r30, r28
+  96:	0e 94 89 06 	call	0xd12	; 0xd12 <__tablejump2__>
+  9a:	ca 32       	cpi	r28, 0x2A	; 42
+  9c:	d1 07       	cpc	r29, r17
+  9e:	c9 f7       	brne	.-14     	; 0x92 <__do_global_ctors+0x8>
+  a0:	0e 94 61 06 	call	0xcc2	; 0xcc2 <main>
+  a4:	0c 94 bc 07 	jmp	0xf78	; 0xf78 <__do_global_dtors>
+
+000000a8 <__bad_interrupt>:
+  a8:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000ac <_Z26LedBlinkPerDelayVariableMsP4Task>:
+
+
+using namespace CodeEasyAvr;
+void LedBlinkPerDelayVariableMs(Task * task)
+{
+	if (BlinkFlag)
+  ac:	80 91 19 01 	lds	r24, 0x0119
+  b0:	88 23       	and	r24, r24
+  b2:	c9 f0       	breq	.+50     	; 0xe6 <_Z26LedBlinkPerDelayVariableMsP4Task+0x3a>
+	{
+		if (ledCounter > 700)
+  b4:	80 91 1a 01 	lds	r24, 0x011A
+  b8:	90 91 1b 01 	lds	r25, 0x011B
+  bc:	8d 3b       	cpi	r24, 0xBD	; 189
+  be:	92 40       	sbci	r25, 0x02	; 2
+  c0:	44 f0       	brlt	.+16     	; 0xd2 <_Z26LedBlinkPerDelayVariableMsP4Task+0x26>
+		{
+			ledCounter = 0;
+  c2:	10 92 1b 01 	sts	0x011B, r1
+  c6:	10 92 1a 01 	sts	0x011A, r1
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+  ca:	98 b3       	in	r25, 0x18	; 24
+  cc:	82 e0       	ldi	r24, 0x02	; 2
+  ce:	89 27       	eor	r24, r25
+  d0:	88 bb       	out	0x18, r24	; 24
+			YellowLed.Toggle();
+		}
+		++ledCounter;
+  d2:	80 91 1a 01 	lds	r24, 0x011A
+  d6:	90 91 1b 01 	lds	r25, 0x011B
+  da:	01 96       	adiw	r24, 0x01	; 1
+  dc:	90 93 1b 01 	sts	0x011B, r25
+  e0:	80 93 1a 01 	sts	0x011A, r24
+  e4:	08 95       	ret
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+  e6:	c1 9a       	sbi	0x18, 1	; 24
+  e8:	08 95       	ret
+
+000000ea <_Z15KeyboardHandlerP4Task>:
+		YellowLed.Set();
+	}
+}
+void KeyboardHandler(Task * task)
+{
+if (!Button.Check()) //Atmega has only internal pull ups - so button must be setted (1), and button must ground it. If pin == 0 then is pressed
+  ea:	87 9b       	sbis	0x10, 7	; 16
+  ec:	13 c0       	rjmp	.+38     	; 0x114 <_Z15KeyboardHandlerP4Task+0x2a>
+	{
+		++ButtonPressTime;
+	}
+	else 
+	{
+		if (ButtonPressTime > 220)
+  ee:	80 91 0a 01 	lds	r24, 0x010A
+  f2:	90 91 0b 01 	lds	r25, 0x010B
+  f6:	8d 3d       	cpi	r24, 0xDD	; 221
+  f8:	91 05       	cpc	r25, r1
+  fa:	b0 f4       	brcc	.+44     	; 0x128 <_Z15KeyboardHandlerP4Task+0x3e>
+		{
+			str_t_bfr_cpy(ButtonPressTime/100,TextOk);//Bad
+			BlinkFlag = !BlinkFlag;
+		}
+		else if (ButtonPressTime > 15)
+  fc:	80 91 0a 01 	lds	r24, 0x010A
+ 100:	90 91 0b 01 	lds	r25, 0x010B
+ 104:	40 97       	sbiw	r24, 0x10	; 16
+ 106:	08 f0       	brcs	.+2      	; 0x10a <_Z15KeyboardHandlerP4Task+0x20>
+ 108:	47 c0       	rjmp	.+142    	; 0x198 <_Z15KeyboardHandlerP4Task+0xae>
+		{
+			str_t_bfr_cpy(5,TextOk);//Bad
+			GreenLed.Toggle();
+		}
+			ButtonPressTime = 0;
+ 10a:	10 92 0b 01 	sts	0x010B, r1
+ 10e:	10 92 0a 01 	sts	0x010A, r1
+ 112:	08 95       	ret
+}
+void KeyboardHandler(Task * task)
+{
+if (!Button.Check()) //Atmega has only internal pull ups - so button must be setted (1), and button must ground it. If pin == 0 then is pressed
+	{
+		++ButtonPressTime;
+ 114:	80 91 0a 01 	lds	r24, 0x010A
+ 118:	90 91 0b 01 	lds	r25, 0x010B
+ 11c:	01 96       	adiw	r24, 0x01	; 1
+ 11e:	90 93 0b 01 	sts	0x010B, r25
+ 122:	80 93 0a 01 	sts	0x010A, r24
+ 126:	08 95       	ret
+	}
+	else 
+	{
+		if (ButtonPressTime > 220)
+		{
+			str_t_bfr_cpy(ButtonPressTime/100,TextOk);//Bad
+ 128:	20 91 0a 01 	lds	r18, 0x010A
+ 12c:	30 91 0b 01 	lds	r19, 0x010B
+ 130:	36 95       	lsr	r19
+ 132:	27 95       	ror	r18
+ 134:	36 95       	lsr	r19
+ 136:	27 95       	ror	r18
+ 138:	ab e7       	ldi	r26, 0x7B	; 123
+ 13a:	b4 e1       	ldi	r27, 0x14	; 20
+ 13c:	0e 94 7a 06 	call	0xcf4	; 0xcf4 <__umulhisi3>
+ 140:	96 95       	lsr	r25
+ 142:	87 95       	ror	r24
+ #include <string.h>
+
+ char  static volatile LedBuffer[33] = "00000000000000000000000000000000";
+ void str_t_bfr_cpy(uint8_t x, char *c) // Very bad ecample
+ {
+	 for (uint8_t i = 0;(*(LedBuffer+x+i)) && *(c + i);*(LedBuffer+x+i) = *(c+i++));
+ 144:	bc 01       	movw	r22, r24
+ 146:	77 27       	eor	r23, r23
+ 148:	fb 01       	movw	r30, r22
+ 14a:	e5 59       	subi	r30, 0x95	; 149
+ 14c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 14e:	80 81       	ld	r24, Z
+ 150:	88 23       	and	r24, r24
+ 152:	b9 f0       	breq	.+46     	; 0x182 <_Z15KeyboardHandlerP4Task+0x98>
+ 154:	20 91 68 00 	lds	r18, 0x0068
+ 158:	22 23       	and	r18, r18
+ 15a:	99 f0       	breq	.+38     	; 0x182 <_Z15KeyboardHandlerP4Task+0x98>
+ 15c:	90 e0       	ldi	r25, 0x00	; 0
+ 15e:	9f 5f       	subi	r25, 0xFF	; 255
+ 160:	20 83       	st	Z, r18
+ 162:	29 2f       	mov	r18, r25
+ 164:	30 e0       	ldi	r19, 0x00	; 0
+ 166:	fb 01       	movw	r30, r22
+ 168:	e2 0f       	add	r30, r18
+ 16a:	f3 1f       	adc	r31, r19
+ 16c:	e5 59       	subi	r30, 0x95	; 149
+ 16e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 170:	40 81       	ld	r20, Z
+ 172:	44 23       	and	r20, r20
+ 174:	31 f0       	breq	.+12     	; 0x182 <_Z15KeyboardHandlerP4Task+0x98>
+ 176:	d9 01       	movw	r26, r18
+ 178:	a8 59       	subi	r26, 0x98	; 152
+ 17a:	bf 4f       	sbci	r27, 0xFF	; 255
+ 17c:	2c 91       	ld	r18, X
+ 17e:	21 11       	cpse	r18, r1
+ 180:	ee cf       	rjmp	.-36     	; 0x15e <_Z15KeyboardHandlerP4Task+0x74>
+			BlinkFlag = !BlinkFlag;
+ 182:	90 91 19 01 	lds	r25, 0x0119
+ 186:	81 e0       	ldi	r24, 0x01	; 1
+ 188:	89 27       	eor	r24, r25
+ 18a:	80 93 19 01 	sts	0x0119, r24
+		else if (ButtonPressTime > 15)
+		{
+			str_t_bfr_cpy(5,TextOk);//Bad
+			GreenLed.Toggle();
+		}
+			ButtonPressTime = 0;
+ 18e:	10 92 0b 01 	sts	0x010B, r1
+ 192:	10 92 0a 01 	sts	0x010A, r1
+ 196:	08 95       	ret
+ 198:	80 91 70 00 	lds	r24, 0x0070
+ 19c:	88 23       	and	r24, r24
+ 19e:	b9 f0       	breq	.+46     	; 0x1ce <_Z15KeyboardHandlerP4Task+0xe4>
+ 1a0:	90 91 68 00 	lds	r25, 0x0068
+ 1a4:	99 23       	and	r25, r25
+ 1a6:	99 f0       	breq	.+38     	; 0x1ce <_Z15KeyboardHandlerP4Task+0xe4>
+ 1a8:	e0 e7       	ldi	r30, 0x70	; 112
+ 1aa:	f0 e0       	ldi	r31, 0x00	; 0
+ 1ac:	80 e0       	ldi	r24, 0x00	; 0
+ 1ae:	8f 5f       	subi	r24, 0xFF	; 255
+ 1b0:	90 83       	st	Z, r25
+ 1b2:	28 2f       	mov	r18, r24
+ 1b4:	30 e0       	ldi	r19, 0x00	; 0
+ 1b6:	f9 01       	movw	r30, r18
+ 1b8:	e0 59       	subi	r30, 0x90	; 144
+ 1ba:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1bc:	90 81       	ld	r25, Z
+ 1be:	99 23       	and	r25, r25
+ 1c0:	31 f0       	breq	.+12     	; 0x1ce <_Z15KeyboardHandlerP4Task+0xe4>
+ 1c2:	d9 01       	movw	r26, r18
+ 1c4:	a8 59       	subi	r26, 0x98	; 152
+ 1c6:	bf 4f       	sbci	r27, 0xFF	; 255
+ 1c8:	9c 91       	ld	r25, X
+ 1ca:	91 11       	cpse	r25, r1
+ 1cc:	f0 cf       	rjmp	.-32     	; 0x1ae <_Z15KeyboardHandlerP4Task+0xc4>
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+ 1ce:	98 b3       	in	r25, 0x18	; 24
+ 1d0:	84 e0       	ldi	r24, 0x04	; 4
+ 1d2:	89 27       	eor	r24, r25
+ 1d4:	88 bb       	out	0x18, r24	; 24
+ 1d6:	99 cf       	rjmp	.-206    	; 0x10a <_Z15KeyboardHandlerP4Task+0x20>
+
+000001d8 <_Znwj>:
+
+#ifndef __CPPHELPERS_H__
+#define __CPPHELPERS_H__
+void * operator new(size_t size)
+{
+	return malloc(size);
+ 1d8:	0c 94 8f 06 	jmp	0xd1e	; 0xd1e <malloc>
+
+000001dc <_ZdlPv>:
+}
+
+void operator delete(void * ptr)
+{
+	free(ptr);
+ 1dc:	0c 94 24 07 	jmp	0xe48	; 0xe48 <free>
+
+000001e0 <_Z13str_t_bfr_cpyhPc>:
+ #include <inttypes.h>
+ #include <string.h>
+
+ char  static volatile LedBuffer[33] = "00000000000000000000000000000000";
+ void str_t_bfr_cpy(uint8_t x, char *c) // Very bad ecample
+ {
+ 1e0:	cf 93       	push	r28
+ 1e2:	df 93       	push	r29
+	 for (uint8_t i = 0;(*(LedBuffer+x+i)) && *(c + i);*(LedBuffer+x+i) = *(c+i++));
+ 1e4:	a8 2f       	mov	r26, r24
+ 1e6:	b0 e0       	ldi	r27, 0x00	; 0
+ 1e8:	fd 01       	movw	r30, r26
+ 1ea:	e5 59       	subi	r30, 0x95	; 149
+ 1ec:	ff 4f       	sbci	r31, 0xFF	; 255
+ 1ee:	80 81       	ld	r24, Z
+ 1f0:	88 23       	and	r24, r24
+ 1f2:	b9 f0       	breq	.+46     	; 0x222 <_Z13str_t_bfr_cpyhPc+0x42>
+ 1f4:	eb 01       	movw	r28, r22
+ 1f6:	28 81       	ld	r18, Y
+ 1f8:	22 23       	and	r18, r18
+ 1fa:	99 f0       	breq	.+38     	; 0x222 <_Z13str_t_bfr_cpyhPc+0x42>
+ 1fc:	90 e0       	ldi	r25, 0x00	; 0
+ 1fe:	9f 5f       	subi	r25, 0xFF	; 255
+ 200:	20 83       	st	Z, r18
+ 202:	29 2f       	mov	r18, r25
+ 204:	30 e0       	ldi	r19, 0x00	; 0
+ 206:	fd 01       	movw	r30, r26
+ 208:	e2 0f       	add	r30, r18
+ 20a:	f3 1f       	adc	r31, r19
+ 20c:	e5 59       	subi	r30, 0x95	; 149
+ 20e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 210:	40 81       	ld	r20, Z
+ 212:	44 23       	and	r20, r20
+ 214:	31 f0       	breq	.+12     	; 0x222 <_Z13str_t_bfr_cpyhPc+0x42>
+ 216:	eb 01       	movw	r28, r22
+ 218:	c2 0f       	add	r28, r18
+ 21a:	d3 1f       	adc	r29, r19
+ 21c:	28 81       	ld	r18, Y
+ 21e:	21 11       	cpse	r18, r1
+ 220:	ee cf       	rjmp	.-36     	; 0x1fe <_Z13str_t_bfr_cpyhPc+0x1e>
+ 222:	df 91       	pop	r29
+ 224:	cf 91       	pop	r28
+ 226:	08 95       	ret
+
+00000228 <__vector_19>:
+		#include "MainAsyncTaskManager.cpp"
+	#endif
+	static TaskManager Taskmanager;
+
+	ISR(TIMER0_COMP_vect)
+	{
+ 228:	1f 92       	push	r1
+ 22a:	0f 92       	push	r0
+ 22c:	0f b6       	in	r0, 0x3f	; 63
+ 22e:	0f 92       	push	r0
+ 230:	11 24       	eor	r1, r1
+ 232:	2f 93       	push	r18
+ 234:	3f 93       	push	r19
+ 236:	4f 93       	push	r20
+ 238:	5f 93       	push	r21
+ 23a:	6f 93       	push	r22
+ 23c:	7f 93       	push	r23
+ 23e:	8f 93       	push	r24
+ 240:	9f 93       	push	r25
+ 242:	af 93       	push	r26
+ 244:	bf 93       	push	r27
+ 246:	ef 93       	push	r30
+ 248:	ff 93       	push	r31
+	}
+}
+
+void Invoke()
+{
+	if (tasks[currentTaskNumber] != nullptr)
+ 24a:	90 91 2c 01 	lds	r25, 0x012C
+ 24e:	e9 2f       	mov	r30, r25
+ 250:	f0 e0       	ldi	r31, 0x00	; 0
+ 252:	ee 0f       	add	r30, r30
+ 254:	ff 1f       	adc	r31, r31
+ 256:	e4 5e       	subi	r30, 0xE4	; 228
+ 258:	fe 4f       	sbci	r31, 0xFE	; 254
+ 25a:	a0 81       	ld	r26, Z
+ 25c:	b1 81       	ldd	r27, Z+1	; 0x01
+ 25e:	10 97       	sbiw	r26, 0x00	; 0
+ 260:	41 f0       	breq	.+16     	; 0x272 <__vector_19+0x4a>
+	{
+		tasks[currentTaskNumber]->currentMethod(tasks[currentTaskNumber]);
+ 262:	12 96       	adiw	r26, 0x02	; 2
+ 264:	ed 91       	ld	r30, X+
+ 266:	fc 91       	ld	r31, X
+ 268:	13 97       	sbiw	r26, 0x03	; 3
+ 26a:	cd 01       	movw	r24, r26
+ 26c:	09 95       	icall
+ 26e:	90 91 2c 01 	lds	r25, 0x012C
+	tasks[task->AlocateNumber] = nullptr;
+}
+
+void GetNext()
+{
+	++currentTaskNumber;
+ 272:	9f 5f       	subi	r25, 0xFF	; 255
+	if (currentTaskNumber >= NumberOfTasks)
+ 274:	98 30       	cpi	r25, 0x08	; 8
+ 276:	98 f0       	brcs	.+38     	; 0x29e <__vector_19+0x76>
+	{
+		currentTaskNumber = 0;
+ 278:	10 92 2c 01 	sts	0x012C, r1
+		Taskmanager.Invoke();
+	}
+ 27c:	ff 91       	pop	r31
+ 27e:	ef 91       	pop	r30
+ 280:	bf 91       	pop	r27
+ 282:	af 91       	pop	r26
+ 284:	9f 91       	pop	r25
+ 286:	8f 91       	pop	r24
+ 288:	7f 91       	pop	r23
+ 28a:	6f 91       	pop	r22
+ 28c:	5f 91       	pop	r21
+ 28e:	4f 91       	pop	r20
+ 290:	3f 91       	pop	r19
+ 292:	2f 91       	pop	r18
+ 294:	0f 90       	pop	r0
+ 296:	0f be       	out	0x3f, r0	; 63
+ 298:	0f 90       	pop	r0
+ 29a:	1f 90       	pop	r1
+ 29c:	18 95       	reti
+	tasks[task->AlocateNumber] = nullptr;
+}
+
+void GetNext()
+{
+	++currentTaskNumber;
+ 29e:	90 93 2c 01 	sts	0x012C, r25
+ 2a2:	ec cf       	rjmp	.-40     	; 0x27c <__vector_19+0x54>
+
+000002a4 <_Z14_LCD_OutNibbleh>:
+//-------------------------------------------------------------------------------------------------
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+ 2a4:	80 ff       	sbrs	r24, 0
+ 2a6:	0b c0       	rjmp	.+22     	; 0x2be <_Z14_LCD_OutNibbleh+0x1a>
+	LCD_DB4_PORT |= LCD_DB4;
+ 2a8:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+ 2aa:	81 ff       	sbrs	r24, 1
+ 2ac:	0b c0       	rjmp	.+22     	; 0x2c4 <_Z14_LCD_OutNibbleh+0x20>
+	LCD_DB5_PORT |= LCD_DB5;
+ 2ae:	a9 9a       	sbi	0x15, 1	; 21
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+ 2b0:	82 ff       	sbrs	r24, 2
+ 2b2:	0b c0       	rjmp	.+22     	; 0x2ca <_Z14_LCD_OutNibbleh+0x26>
+	LCD_DB6_PORT |= LCD_DB6;
+ 2b4:	aa 9a       	sbi	0x15, 2	; 21
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+
+if(nibbleToWrite & 0x08)
+ 2b6:	83 fd       	sbrc	r24, 3
+ 2b8:	0b c0       	rjmp	.+22     	; 0x2d0 <_Z14_LCD_OutNibbleh+0x2c>
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 2ba:	ab 98       	cbi	0x15, 3	; 21
+ 2bc:	08 95       	ret
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+ 2be:	a8 98       	cbi	0x15, 0	; 21
+
+if(nibbleToWrite & 0x02)
+ 2c0:	81 fd       	sbrc	r24, 1
+ 2c2:	f5 cf       	rjmp	.-22     	; 0x2ae <_Z14_LCD_OutNibbleh+0xa>
+	LCD_DB5_PORT |= LCD_DB5;
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+ 2c4:	a9 98       	cbi	0x15, 1	; 21
+
+if(nibbleToWrite & 0x04)
+ 2c6:	82 fd       	sbrc	r24, 2
+ 2c8:	f5 cf       	rjmp	.-22     	; 0x2b4 <_Z14_LCD_OutNibbleh+0x10>
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 2ca:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+ 2cc:	83 ff       	sbrs	r24, 3
+ 2ce:	f5 cf       	rjmp	.-22     	; 0x2ba <_Z14_LCD_OutNibbleh+0x16>
+	LCD_DB7_PORT |= LCD_DB7;
+ 2d0:	ab 9a       	sbi	0x15, 3	; 21
+ 2d2:	08 95       	ret
+
+000002d4 <_Z13_LCD_InNibblev>:
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 2d4:	83 b3       	in	r24, 0x13	; 19
+ 2d6:	81 70       	andi	r24, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 2d8:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 2da:	82 60       	ori	r24, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 2dc:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 2de:	84 60       	ori	r24, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 2e0:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 2e2:	88 60       	ori	r24, 0x08	; 8
+return tmp;
+}
+ 2e4:	08 95       	ret
+
+000002e6 <_Z10_LCD_Writeh>:
+//-------------------------------------------------------------------------------------------------
+// Funkcja zapisu bajtu do wyœwietacza (bez rozró¿nienia instrukcja/dane).
+//-------------------------------------------------------------------------------------------------
+void _LCD_Write(unsigned char dataToWrite)
+{
+LCD_DB4_DIR |= LCD_DB4;
+ 2e6:	a0 9a       	sbi	0x14, 0	; 20
+LCD_DB5_DIR |= LCD_DB5;
+ 2e8:	a1 9a       	sbi	0x14, 1	; 20
+LCD_DB6_DIR |= LCD_DB6;
+ 2ea:	a2 9a       	sbi	0x14, 2	; 20
+LCD_DB7_DIR |= LCD_DB7;
+ 2ec:	a3 9a       	sbi	0x14, 3	; 20
+
+LCD_RW_PORT &= ~LCD_RW;
+ 2ee:	ad 98       	cbi	0x15, 5	; 21
+LCD_E_PORT |= LCD_E;
+ 2f0:	ac 9a       	sbi	0x15, 4	; 21
+_LCD_OutNibble(dataToWrite >> 4);
+ 2f2:	28 2f       	mov	r18, r24
+ 2f4:	30 e0       	ldi	r19, 0x00	; 0
+ 2f6:	35 95       	asr	r19
+ 2f8:	27 95       	ror	r18
+ 2fa:	35 95       	asr	r19
+ 2fc:	27 95       	ror	r18
+ 2fe:	35 95       	asr	r19
+ 300:	27 95       	ror	r18
+ 302:	35 95       	asr	r19
+ 304:	27 95       	ror	r18
+//-------------------------------------------------------------------------------------------------
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+ 306:	20 ff       	sbrs	r18, 0
+ 308:	58 c0       	rjmp	.+176    	; 0x3ba <_Z10_LCD_Writeh+0xd4>
+	LCD_DB4_PORT |= LCD_DB4;
+ 30a:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+ 30c:	21 ff       	sbrs	r18, 1
+ 30e:	53 c0       	rjmp	.+166    	; 0x3b6 <_Z10_LCD_Writeh+0xd0>
+	LCD_DB5_PORT |= LCD_DB5;
+ 310:	a9 9a       	sbi	0x15, 1	; 21
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+ 312:	22 ff       	sbrs	r18, 2
+ 314:	4b c0       	rjmp	.+150    	; 0x3ac <_Z10_LCD_Writeh+0xc6>
+	LCD_DB6_PORT |= LCD_DB6;
+ 316:	aa 9a       	sbi	0x15, 2	; 21
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+
+if(nibbleToWrite & 0x08)
+ 318:	23 fd       	sbrc	r18, 3
+ 31a:	4b c0       	rjmp	.+150    	; 0x3b2 <_Z10_LCD_Writeh+0xcc>
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 31c:	ab 98       	cbi	0x15, 3	; 21
+LCD_DB7_DIR |= LCD_DB7;
+
+LCD_RW_PORT &= ~LCD_RW;
+LCD_E_PORT |= LCD_E;
+_LCD_OutNibble(dataToWrite >> 4);
+LCD_E_PORT &= ~LCD_E;
+ 31e:	ac 98       	cbi	0x15, 4	; 21
+LCD_E_PORT |= LCD_E;
+ 320:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+ 322:	80 ff       	sbrs	r24, 0
+ 324:	41 c0       	rjmp	.+130    	; 0x3a8 <_Z10_LCD_Writeh+0xc2>
+	LCD_DB4_PORT |= LCD_DB4;
+ 326:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+ 328:	81 ff       	sbrs	r24, 1
+ 32a:	3c c0       	rjmp	.+120    	; 0x3a4 <_Z10_LCD_Writeh+0xbe>
+	LCD_DB5_PORT |= LCD_DB5;
+ 32c:	a9 9a       	sbi	0x15, 1	; 21
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+ 32e:	82 ff       	sbrs	r24, 2
+ 330:	34 c0       	rjmp	.+104    	; 0x39a <_Z10_LCD_Writeh+0xb4>
+	LCD_DB6_PORT |= LCD_DB6;
+ 332:	aa 9a       	sbi	0x15, 2	; 21
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+
+if(nibbleToWrite & 0x08)
+ 334:	83 fd       	sbrc	r24, 3
+ 336:	34 c0       	rjmp	.+104    	; 0x3a0 <_Z10_LCD_Writeh+0xba>
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 338:	ab 98       	cbi	0x15, 3	; 21
+LCD_E_PORT |= LCD_E;
+_LCD_OutNibble(dataToWrite >> 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+_LCD_OutNibble(dataToWrite);
+LCD_E_PORT &= ~LCD_E;
+ 33a:	ac 98       	cbi	0x15, 4	; 21
+// Funkcja odczytu bajtu statusowego
+//
+//-------------------------------------------------------------------------------------------------
+unsigned char LCD_ReadStatus(void)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 33c:	ae 98       	cbi	0x15, 6	; 21
+//-------------------------------------------------------------------------------------------------
+
+unsigned char _LCD_Read(void)
+{
+unsigned char tmp = 0;
+LCD_DB4_DIR &= ~LCD_DB4;
+ 33e:	a0 98       	cbi	0x14, 0	; 20
+LCD_DB5_DIR &= ~LCD_DB5;
+ 340:	a1 98       	cbi	0x14, 1	; 20
+LCD_DB6_DIR &= ~LCD_DB6;
+ 342:	a2 98       	cbi	0x14, 2	; 20
+LCD_DB7_DIR &= ~LCD_DB7;
+ 344:	a3 98       	cbi	0x14, 3	; 20
+
+LCD_RW_PORT |= LCD_RW;
+ 346:	ad 9a       	sbi	0x15, 5	; 21
+LCD_E_PORT |= LCD_E;
+ 348:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 34a:	83 b3       	in	r24, 0x13	; 19
+ 34c:	81 70       	andi	r24, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+	tmp |= (1 << 1);
+ 34e:	98 2f       	mov	r25, r24
+ 350:	92 60       	ori	r25, 0x02	; 2
+ 352:	99 99       	sbic	0x13, 1	; 19
+ 354:	89 2f       	mov	r24, r25
+if(LCD_DB6_PIN & LCD_DB6)
+	tmp |= (1 << 2);
+ 356:	98 2f       	mov	r25, r24
+ 358:	94 60       	ori	r25, 0x04	; 4
+ 35a:	9a 99       	sbic	0x13, 2	; 19
+ 35c:	89 2f       	mov	r24, r25
+if(LCD_DB7_PIN & LCD_DB7)
+	tmp |= (1 << 3);
+ 35e:	98 2f       	mov	r25, r24
+ 360:	98 60       	ori	r25, 0x08	; 8
+ 362:	9b 99       	sbic	0x13, 3	; 19
+ 364:	89 2f       	mov	r24, r25
+LCD_DB6_DIR &= ~LCD_DB6;
+LCD_DB7_DIR &= ~LCD_DB7;
+
+LCD_RW_PORT |= LCD_RW;
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+ 366:	20 e1       	ldi	r18, 0x10	; 16
+ 368:	82 9f       	mul	r24, r18
+ 36a:	c0 01       	movw	r24, r0
+ 36c:	11 24       	eor	r1, r1
+LCD_E_PORT &= ~LCD_E;
+ 36e:	ac 98       	cbi	0x15, 4	; 21
+LCD_E_PORT |= LCD_E;
+ 370:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 372:	23 b3       	in	r18, 0x13	; 19
+ 374:	21 70       	andi	r18, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+	tmp |= (1 << 1);
+ 376:	32 2f       	mov	r19, r18
+ 378:	32 60       	ori	r19, 0x02	; 2
+ 37a:	99 99       	sbic	0x13, 1	; 19
+ 37c:	23 2f       	mov	r18, r19
+if(LCD_DB6_PIN & LCD_DB6)
+	tmp |= (1 << 2);
+ 37e:	32 2f       	mov	r19, r18
+ 380:	34 60       	ori	r19, 0x04	; 4
+ 382:	9a 99       	sbic	0x13, 2	; 19
+ 384:	23 2f       	mov	r18, r19
+if(LCD_DB7_PIN & LCD_DB7)
+ 386:	33 b3       	in	r19, 0x13	; 19
+	tmp |= (1 << 3);
+ 388:	42 2f       	mov	r20, r18
+ 38a:	48 60       	ori	r20, 0x08	; 8
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+tmp |= _LCD_InNibble();
+LCD_E_PORT &= ~LCD_E;
+ 38c:	ac 98       	cbi	0x15, 4	; 21
+ 38e:	33 fd       	sbrc	r19, 3
+ 390:	24 2f       	mov	r18, r20
+LCD_RW_PORT |= LCD_RW;
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+tmp |= _LCD_InNibble();
+ 392:	82 2b       	or	r24, r18
+_LCD_OutNibble(dataToWrite >> 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+_LCD_OutNibble(dataToWrite);
+LCD_E_PORT &= ~LCD_E;
+while(LCD_ReadStatus()&0x80);
+ 394:	87 fd       	sbrc	r24, 7
+ 396:	d2 cf       	rjmp	.-92     	; 0x33c <_Z10_LCD_Writeh+0x56>
+}
+ 398:	08 95       	ret
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 39a:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+ 39c:	83 ff       	sbrs	r24, 3
+ 39e:	cc cf       	rjmp	.-104    	; 0x338 <_Z10_LCD_Writeh+0x52>
+	LCD_DB7_PORT |= LCD_DB7;
+ 3a0:	ab 9a       	sbi	0x15, 3	; 21
+ 3a2:	cb cf       	rjmp	.-106    	; 0x33a <_Z10_LCD_Writeh+0x54>
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+ 3a4:	a9 98       	cbi	0x15, 1	; 21
+ 3a6:	c3 cf       	rjmp	.-122    	; 0x32e <_Z10_LCD_Writeh+0x48>
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+ 3a8:	a8 98       	cbi	0x15, 0	; 21
+ 3aa:	be cf       	rjmp	.-132    	; 0x328 <_Z10_LCD_Writeh+0x42>
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 3ac:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+ 3ae:	23 ff       	sbrs	r18, 3
+ 3b0:	b5 cf       	rjmp	.-150    	; 0x31c <_Z10_LCD_Writeh+0x36>
+	LCD_DB7_PORT |= LCD_DB7;
+ 3b2:	ab 9a       	sbi	0x15, 3	; 21
+ 3b4:	b4 cf       	rjmp	.-152    	; 0x31e <_Z10_LCD_Writeh+0x38>
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+else
+	LCD_DB5_PORT  &= ~LCD_DB5;
+ 3b6:	a9 98       	cbi	0x15, 1	; 21
+ 3b8:	ac cf       	rjmp	.-168    	; 0x312 <_Z10_LCD_Writeh+0x2c>
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+ 3ba:	a8 98       	cbi	0x15, 0	; 21
+ 3bc:	a7 cf       	rjmp	.-178    	; 0x30c <_Z10_LCD_Writeh+0x26>
+
+000003be <_Z3LedP4Task>:
+	}
+}
+void Led(Task * task){
+
+		if (elapsedTime == 16)
+ 3be:	e0 91 0c 01 	lds	r30, 0x010C
+ 3c2:	e0 31       	cpi	r30, 0x10	; 16
+ 3c4:	c1 f0       	breq	.+48     	; 0x3f6 <_Z3LedP4Task+0x38>
+			LCD_GoTo(0,1);
+		
+		if (elapsedTime == 33)
+ 3c6:	e1 32       	cpi	r30, 0x21	; 33
+ 3c8:	69 f0       	breq	.+26     	; 0x3e4 <_Z3LedP4Task+0x26>
+ 3ca:	f0 e0       	ldi	r31, 0x00	; 0
+		{
+			LCD_GoTo(0,0);
+			elapsedTime = 0;
+		}
+	
+		LCD_WriteData(LedBuffer[elapsedTime]);
+ 3cc:	e5 59       	subi	r30, 0x95	; 149
+ 3ce:	ff 4f       	sbci	r31, 0xFF	; 255
+ 3d0:	80 81       	ld	r24, Z
+// Funkcja zapisu danych do pamiêci wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteData(unsigned char dataToWrite)
+{
+LCD_RS_PORT |= LCD_RS;
+ 3d2:	ae 9a       	sbi	0x15, 6	; 21
+_LCD_Write(dataToWrite);
+ 3d4:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+		elapsedTime++;
+ 3d8:	80 91 0c 01 	lds	r24, 0x010C
+ 3dc:	8f 5f       	subi	r24, 0xFF	; 255
+ 3de:	80 93 0c 01 	sts	0x010C, r24
+ 3e2:	08 95       	ret
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 3e4:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 3e6:	80 e8       	ldi	r24, 0x80	; 128
+ 3e8:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+			LCD_GoTo(0,1);
+		
+		if (elapsedTime == 33)
+		{
+			LCD_GoTo(0,0);
+			elapsedTime = 0;
+ 3ec:	10 92 0c 01 	sts	0x010C, r1
+ 3f0:	e0 e0       	ldi	r30, 0x00	; 0
+ 3f2:	f0 e0       	ldi	r31, 0x00	; 0
+ 3f4:	eb cf       	rjmp	.-42     	; 0x3cc <_Z3LedP4Task+0xe>
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 3f6:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 3f8:	80 ec       	ldi	r24, 0xC0	; 192
+ 3fa:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 3fe:	e0 91 0c 01 	lds	r30, 0x010C
+ 402:	e1 cf       	rjmp	.-62     	; 0x3c6 <_Z3LedP4Task+0x8>
+
+00000404 <_Z9_LCD_Readv>:
+//-------------------------------------------------------------------------------------------------
+
+unsigned char _LCD_Read(void)
+{
+unsigned char tmp = 0;
+LCD_DB4_DIR &= ~LCD_DB4;
+ 404:	a0 98       	cbi	0x14, 0	; 20
+LCD_DB5_DIR &= ~LCD_DB5;
+ 406:	a1 98       	cbi	0x14, 1	; 20
+LCD_DB6_DIR &= ~LCD_DB6;
+ 408:	a2 98       	cbi	0x14, 2	; 20
+LCD_DB7_DIR &= ~LCD_DB7;
+ 40a:	a3 98       	cbi	0x14, 3	; 20
+
+LCD_RW_PORT |= LCD_RW;
+ 40c:	ad 9a       	sbi	0x15, 5	; 21
+LCD_E_PORT |= LCD_E;
+ 40e:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 410:	23 b3       	in	r18, 0x13	; 19
+ 412:	21 70       	andi	r18, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 414:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 416:	22 60       	ori	r18, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 418:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 41a:	24 60       	ori	r18, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 41c:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 41e:	28 60       	ori	r18, 0x08	; 8
+LCD_DB6_DIR &= ~LCD_DB6;
+LCD_DB7_DIR &= ~LCD_DB7;
+
+LCD_RW_PORT |= LCD_RW;
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+ 420:	80 e1       	ldi	r24, 0x10	; 16
+ 422:	28 9f       	mul	r18, r24
+ 424:	90 01       	movw	r18, r0
+ 426:	11 24       	eor	r1, r1
+LCD_E_PORT &= ~LCD_E;
+ 428:	ac 98       	cbi	0x15, 4	; 21
+LCD_E_PORT |= LCD_E;
+ 42a:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 42c:	83 b3       	in	r24, 0x13	; 19
+ 42e:	81 70       	andi	r24, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 430:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 432:	82 60       	ori	r24, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 434:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 436:	84 60       	ori	r24, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 438:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 43a:	88 60       	ori	r24, 0x08	; 8
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+tmp |= _LCD_InNibble();
+LCD_E_PORT &= ~LCD_E;
+ 43c:	ac 98       	cbi	0x15, 4	; 21
+return tmp;
+}
+ 43e:	82 2b       	or	r24, r18
+ 440:	08 95       	ret
+
+00000442 <_Z16LCD_WriteCommandh>:
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 442:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 444:	0c 94 73 01 	jmp	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+
+00000448 <_Z14LCD_ReadStatusv>:
+// Funkcja odczytu bajtu statusowego
+//
+//-------------------------------------------------------------------------------------------------
+unsigned char LCD_ReadStatus(void)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 448:	ae 98       	cbi	0x15, 6	; 21
+//-------------------------------------------------------------------------------------------------
+
+unsigned char _LCD_Read(void)
+{
+unsigned char tmp = 0;
+LCD_DB4_DIR &= ~LCD_DB4;
+ 44a:	a0 98       	cbi	0x14, 0	; 20
+LCD_DB5_DIR &= ~LCD_DB5;
+ 44c:	a1 98       	cbi	0x14, 1	; 20
+LCD_DB6_DIR &= ~LCD_DB6;
+ 44e:	a2 98       	cbi	0x14, 2	; 20
+LCD_DB7_DIR &= ~LCD_DB7;
+ 450:	a3 98       	cbi	0x14, 3	; 20
+
+LCD_RW_PORT |= LCD_RW;
+ 452:	ad 9a       	sbi	0x15, 5	; 21
+LCD_E_PORT |= LCD_E;
+ 454:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 456:	23 b3       	in	r18, 0x13	; 19
+ 458:	21 70       	andi	r18, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 45a:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 45c:	22 60       	ori	r18, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 45e:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 460:	24 60       	ori	r18, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 462:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 464:	28 60       	ori	r18, 0x08	; 8
+LCD_DB6_DIR &= ~LCD_DB6;
+LCD_DB7_DIR &= ~LCD_DB7;
+
+LCD_RW_PORT |= LCD_RW;
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+ 466:	80 e1       	ldi	r24, 0x10	; 16
+ 468:	28 9f       	mul	r18, r24
+ 46a:	90 01       	movw	r18, r0
+ 46c:	11 24       	eor	r1, r1
+LCD_E_PORT &= ~LCD_E;
+ 46e:	ac 98       	cbi	0x15, 4	; 21
+LCD_E_PORT |= LCD_E;
+ 470:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 472:	83 b3       	in	r24, 0x13	; 19
+ 474:	81 70       	andi	r24, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 476:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 478:	82 60       	ori	r24, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 47a:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 47c:	84 60       	ori	r24, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 47e:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 480:	88 60       	ori	r24, 0x08	; 8
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+tmp |= _LCD_InNibble();
+LCD_E_PORT &= ~LCD_E;
+ 482:	ac 98       	cbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char LCD_ReadStatus(void)
+{
+LCD_RS_PORT &= ~LCD_RS;
+return _LCD_Read();
+}
+ 484:	82 2b       	or	r24, r18
+ 486:	08 95       	ret
+
+00000488 <_Z13LCD_WriteDatah>:
+// Funkcja zapisu danych do pamiêci wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteData(unsigned char dataToWrite)
+{
+LCD_RS_PORT |= LCD_RS;
+ 488:	ae 9a       	sbi	0x15, 6	; 21
+_LCD_Write(dataToWrite);
+ 48a:	0c 94 73 01 	jmp	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+
+0000048e <_Z12LCD_ReadDatav>:
+// Funkcja odczytu danych z pamiêci wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+unsigned char LCD_ReadData(void)
+{
+LCD_RS_PORT |= LCD_RS;
+ 48e:	ae 9a       	sbi	0x15, 6	; 21
+//-------------------------------------------------------------------------------------------------
+
+unsigned char _LCD_Read(void)
+{
+unsigned char tmp = 0;
+LCD_DB4_DIR &= ~LCD_DB4;
+ 490:	a0 98       	cbi	0x14, 0	; 20
+LCD_DB5_DIR &= ~LCD_DB5;
+ 492:	a1 98       	cbi	0x14, 1	; 20
+LCD_DB6_DIR &= ~LCD_DB6;
+ 494:	a2 98       	cbi	0x14, 2	; 20
+LCD_DB7_DIR &= ~LCD_DB7;
+ 496:	a3 98       	cbi	0x14, 3	; 20
+
+LCD_RW_PORT |= LCD_RW;
+ 498:	ad 9a       	sbi	0x15, 5	; 21
+LCD_E_PORT |= LCD_E;
+ 49a:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 49c:	23 b3       	in	r18, 0x13	; 19
+ 49e:	21 70       	andi	r18, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 4a0:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 4a2:	22 60       	ori	r18, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 4a4:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 4a6:	24 60       	ori	r18, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 4a8:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 4aa:	28 60       	ori	r18, 0x08	; 8
+LCD_DB6_DIR &= ~LCD_DB6;
+LCD_DB7_DIR &= ~LCD_DB7;
+
+LCD_RW_PORT |= LCD_RW;
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+ 4ac:	80 e1       	ldi	r24, 0x10	; 16
+ 4ae:	28 9f       	mul	r18, r24
+ 4b0:	90 01       	movw	r18, r0
+ 4b2:	11 24       	eor	r1, r1
+LCD_E_PORT &= ~LCD_E;
+ 4b4:	ac 98       	cbi	0x15, 4	; 21
+LCD_E_PORT |= LCD_E;
+ 4b6:	ac 9a       	sbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char _LCD_InNibble(void)
+{
+unsigned char tmp = 0;
+
+if(LCD_DB4_PIN & LCD_DB4)
+ 4b8:	83 b3       	in	r24, 0x13	; 19
+ 4ba:	81 70       	andi	r24, 0x01	; 1
+	tmp |= (1 << 0);
+if(LCD_DB5_PIN & LCD_DB5)
+ 4bc:	99 99       	sbic	0x13, 1	; 19
+	tmp |= (1 << 1);
+ 4be:	82 60       	ori	r24, 0x02	; 2
+if(LCD_DB6_PIN & LCD_DB6)
+ 4c0:	9a 99       	sbic	0x13, 2	; 19
+	tmp |= (1 << 2);
+ 4c2:	84 60       	ori	r24, 0x04	; 4
+if(LCD_DB7_PIN & LCD_DB7)
+ 4c4:	9b 99       	sbic	0x13, 3	; 19
+	tmp |= (1 << 3);
+ 4c6:	88 60       	ori	r24, 0x08	; 8
+LCD_E_PORT |= LCD_E;
+tmp |= (_LCD_InNibble() << 4);
+LCD_E_PORT &= ~LCD_E;
+LCD_E_PORT |= LCD_E;
+tmp |= _LCD_InNibble();
+LCD_E_PORT &= ~LCD_E;
+ 4c8:	ac 98       	cbi	0x15, 4	; 21
+//-------------------------------------------------------------------------------------------------
+unsigned char LCD_ReadData(void)
+{
+LCD_RS_PORT |= LCD_RS;
+return _LCD_Read();
+}
+ 4ca:	82 2b       	or	r24, r18
+ 4cc:	08 95       	ret
+
+000004ce <_Z13LCD_WriteTextPc>:
+//
+// Funkcja wyœwietlenia napisu na wyswietlaczu.
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteText(char * text)
+{
+ 4ce:	cf 93       	push	r28
+ 4d0:	df 93       	push	r29
+ 4d2:	ec 01       	movw	r28, r24
+while(*text)
+ 4d4:	88 81       	ld	r24, Y
+ 4d6:	88 23       	and	r24, r24
+ 4d8:	39 f0       	breq	.+14     	; 0x4e8 <_Z13LCD_WriteTextPc+0x1a>
+ 4da:	21 96       	adiw	r28, 0x01	; 1
+// Funkcja zapisu danych do pamiêci wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteData(unsigned char dataToWrite)
+{
+LCD_RS_PORT |= LCD_RS;
+ 4dc:	ae 9a       	sbi	0x15, 6	; 21
+_LCD_Write(dataToWrite);
+ 4de:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+// Funkcja wyœwietlenia napisu na wyswietlaczu.
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteText(char * text)
+{
+while(*text)
+ 4e2:	89 91       	ld	r24, Y+
+ 4e4:	81 11       	cpse	r24, r1
+ 4e6:	fa cf       	rjmp	.-12     	; 0x4dc <_Z13LCD_WriteTextPc+0xe>
+  LCD_WriteData(*text++);
+}
+ 4e8:	df 91       	pop	r29
+ 4ea:	cf 91       	pop	r28
+ 4ec:	08 95       	ret
+
+000004ee <_Z8LCD_GoTohh>:
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 4ee:	ae 98       	cbi	0x15, 6	; 21
+// Funkcja ustawienia wspó³rzêdnych ekranowych
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_GoTo(unsigned char x, unsigned char y)
+{
+LCD_WriteCommand(HD44780_DDRAM_SET | (x + (0x40 * y)));
+ 4f0:	90 e4       	ldi	r25, 0x40	; 64
+ 4f2:	69 9f       	mul	r22, r25
+ 4f4:	80 0d       	add	r24, r0
+ 4f6:	11 24       	eor	r1, r1
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+_LCD_Write(commandToWrite);
+ 4f8:	80 68       	ori	r24, 0x80	; 128
+ 4fa:	0c 94 73 01 	jmp	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+
+000004fe <_Z9LCD_Clearv>:
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 4fe:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 500:	81 e0       	ldi	r24, 0x01	; 1
+ 502:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 506:	8f e3       	ldi	r24, 0x3F	; 63
+ 508:	9f e1       	ldi	r25, 0x1F	; 31
+ 50a:	01 97       	sbiw	r24, 0x01	; 1
+ 50c:	f1 f7       	brne	.-4      	; 0x50a <_Z9LCD_Clearv+0xc>
+ 50e:	00 c0       	rjmp	.+0      	; 0x510 <_Z9LCD_Clearv+0x12>
+ 510:	00 00       	nop
+ 512:	08 95       	ret
+
+00000514 <_Z8LCD_Homev>:
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 514:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 516:	82 e0       	ldi	r24, 0x02	; 2
+ 518:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 51c:	8f e3       	ldi	r24, 0x3F	; 63
+ 51e:	9f e1       	ldi	r25, 0x1F	; 31
+ 520:	01 97       	sbiw	r24, 0x01	; 1
+ 522:	f1 f7       	brne	.-4      	; 0x520 <_Z8LCD_Homev+0xc>
+ 524:	00 c0       	rjmp	.+0      	; 0x526 <_Z8LCD_Homev+0x12>
+ 526:	00 00       	nop
+ 528:	08 95       	ret
+
+0000052a <_Z13LCD_Initalizev>:
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_Initalize(void)
+{
+unsigned char i;
+LCD_DB4_DIR |= LCD_DB4; // Konfiguracja kierunku pracy wyprowadzeñ
+ 52a:	a0 9a       	sbi	0x14, 0	; 20
+LCD_DB5_DIR |= LCD_DB5; //
+ 52c:	a1 9a       	sbi	0x14, 1	; 20
+LCD_DB6_DIR |= LCD_DB6; //
+ 52e:	a2 9a       	sbi	0x14, 2	; 20
+LCD_DB7_DIR |= LCD_DB7; //
+ 530:	a3 9a       	sbi	0x14, 3	; 20
+LCD_E_DIR 	|= LCD_E;   //
+ 532:	a4 9a       	sbi	0x14, 4	; 20
+LCD_RS_DIR 	|= LCD_RS;  //
+ 534:	a6 9a       	sbi	0x14, 6	; 20
+LCD_RW_DIR 	|= LCD_RW;  //
+ 536:	a5 9a       	sbi	0x14, 5	; 20
+ 538:	8f e5       	ldi	r24, 0x5F	; 95
+ 53a:	9a ee       	ldi	r25, 0xEA	; 234
+ 53c:	01 97       	sbiw	r24, 0x01	; 1
+ 53e:	f1 f7       	brne	.-4      	; 0x53c <_Z13LCD_Initalizev+0x12>
+ 540:	00 c0       	rjmp	.+0      	; 0x542 <_Z13LCD_Initalizev+0x18>
+ 542:	00 00       	nop
+_delay_ms(15); // oczekiwanie na ustalibizowanie siê napiecia zasilajacego
+LCD_RS_PORT &= ~LCD_RS; // wyzerowanie linii RS
+ 544:	ae 98       	cbi	0x15, 6	; 21
+LCD_E_PORT &= ~LCD_E;  // wyzerowanie linii E
+ 546:	ac 98       	cbi	0x15, 4	; 21
+LCD_RW_PORT &= ~LCD_RW;
+ 548:	ad 98       	cbi	0x15, 5	; 21
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+ 54a:	ac 9a       	sbi	0x15, 4	; 21
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+ 54c:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+ 54e:	a9 9a       	sbi	0x15, 1	; 21
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 550:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 552:	ab 98       	cbi	0x15, 3	; 21
+LCD_RW_PORT &= ~LCD_RW;
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+  _LCD_OutNibble(0x03); // tryb 8-bitowy
+  LCD_E_PORT &= ~LCD_E; // E = 0
+ 554:	ac 98       	cbi	0x15, 4	; 21
+ 556:	8f e1       	ldi	r24, 0x1F	; 31
+ 558:	9e e4       	ldi	r25, 0x4E	; 78
+ 55a:	01 97       	sbiw	r24, 0x01	; 1
+ 55c:	f1 f7       	brne	.-4      	; 0x55a <_Z13LCD_Initalizev+0x30>
+ 55e:	00 c0       	rjmp	.+0      	; 0x560 <_Z13LCD_Initalizev+0x36>
+ 560:	00 00       	nop
+LCD_RS_PORT &= ~LCD_RS; // wyzerowanie linii RS
+LCD_E_PORT &= ~LCD_E;  // wyzerowanie linii E
+LCD_RW_PORT &= ~LCD_RW;
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+ 562:	ac 9a       	sbi	0x15, 4	; 21
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+ 564:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+ 566:	a9 9a       	sbi	0x15, 1	; 21
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 568:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 56a:	ab 98       	cbi	0x15, 3	; 21
+LCD_RW_PORT &= ~LCD_RW;
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+  _LCD_OutNibble(0x03); // tryb 8-bitowy
+  LCD_E_PORT &= ~LCD_E; // E = 0
+ 56c:	ac 98       	cbi	0x15, 4	; 21
+ 56e:	8f e1       	ldi	r24, 0x1F	; 31
+ 570:	9e e4       	ldi	r25, 0x4E	; 78
+ 572:	01 97       	sbiw	r24, 0x01	; 1
+ 574:	f1 f7       	brne	.-4      	; 0x572 <_Z13LCD_Initalizev+0x48>
+ 576:	00 c0       	rjmp	.+0      	; 0x578 <_Z13LCD_Initalizev+0x4e>
+ 578:	00 00       	nop
+LCD_RS_PORT &= ~LCD_RS; // wyzerowanie linii RS
+LCD_E_PORT &= ~LCD_E;  // wyzerowanie linii E
+LCD_RW_PORT &= ~LCD_RW;
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+ 57a:	ac 9a       	sbi	0x15, 4	; 21
+// Funkcja wystawiaj¹ca pó³bajt na magistralê danych
+//-------------------------------------------------------------------------------------------------
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+ 57c:	a8 9a       	sbi	0x15, 0	; 21
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+ 57e:	a9 9a       	sbi	0x15, 1	; 21
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 580:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 582:	ab 98       	cbi	0x15, 3	; 21
+LCD_RW_PORT &= ~LCD_RW;
+for(i = 0; i < 3; i++) // trzykrotne powtórzenie bloku instrukcji
+  {
+  LCD_E_PORT |= LCD_E; //  E = 1
+  _LCD_OutNibble(0x03); // tryb 8-bitowy
+  LCD_E_PORT &= ~LCD_E; // E = 0
+ 584:	ac 98       	cbi	0x15, 4	; 21
+ 586:	8f e1       	ldi	r24, 0x1F	; 31
+ 588:	9e e4       	ldi	r25, 0x4E	; 78
+ 58a:	01 97       	sbiw	r24, 0x01	; 1
+ 58c:	f1 f7       	brne	.-4      	; 0x58a <_Z13LCD_Initalizev+0x60>
+ 58e:	00 c0       	rjmp	.+0      	; 0x590 <_Z13LCD_Initalizev+0x66>
+ 590:	00 00       	nop
+  _delay_ms(5); // czekaj 5ms
+  }
+
+LCD_E_PORT |= LCD_E; // E = 1
+ 592:	ac 9a       	sbi	0x15, 4	; 21
+void _LCD_OutNibble(unsigned char nibbleToWrite)
+{
+if(nibbleToWrite & 0x01)
+	LCD_DB4_PORT |= LCD_DB4;
+else
+	LCD_DB4_PORT  &= ~LCD_DB4;
+ 594:	a8 98       	cbi	0x15, 0	; 21
+
+if(nibbleToWrite & 0x02)
+	LCD_DB5_PORT |= LCD_DB5;
+ 596:	a9 9a       	sbi	0x15, 1	; 21
+	LCD_DB5_PORT  &= ~LCD_DB5;
+
+if(nibbleToWrite & 0x04)
+	LCD_DB6_PORT |= LCD_DB6;
+else
+	LCD_DB6_PORT  &= ~LCD_DB6;
+ 598:	aa 98       	cbi	0x15, 2	; 21
+
+if(nibbleToWrite & 0x08)
+	LCD_DB7_PORT |= LCD_DB7;
+else
+	LCD_DB7_PORT  &= ~LCD_DB7;
+ 59a:	ab 98       	cbi	0x15, 3	; 21
+  _delay_ms(5); // czekaj 5ms
+  }
+
+LCD_E_PORT |= LCD_E; // E = 1
+_LCD_OutNibble(0x02); // tryb 4-bitowy
+LCD_E_PORT &= ~LCD_E; // E = 0
+ 59c:	ac 98       	cbi	0x15, 4	; 21
+ 59e:	8f e9       	ldi	r24, 0x9F	; 159
+ 5a0:	9f e0       	ldi	r25, 0x0F	; 15
+ 5a2:	01 97       	sbiw	r24, 0x01	; 1
+ 5a4:	f1 f7       	brne	.-4      	; 0x5a2 <_Z13LCD_Initalizev+0x78>
+ 5a6:	00 c0       	rjmp	.+0      	; 0x5a8 <_Z13LCD_Initalizev+0x7e>
+ 5a8:	00 00       	nop
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 5aa:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 5ac:	88 e2       	ldi	r24, 0x28	; 40
+ 5ae:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 5b2:	8f e9       	ldi	r24, 0x9F	; 159
+ 5b4:	9f e0       	ldi	r25, 0x0F	; 15
+ 5b6:	01 97       	sbiw	r24, 0x01	; 1
+ 5b8:	f1 f7       	brne	.-4      	; 0x5b6 <_Z13LCD_Initalizev+0x8c>
+ 5ba:	00 c0       	rjmp	.+0      	; 0x5bc <_Z13LCD_Initalizev+0x92>
+ 5bc:	00 00       	nop
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 5be:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 5c0:	88 e0       	ldi	r24, 0x08	; 8
+ 5c2:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 5c6:	8f e9       	ldi	r24, 0x9F	; 159
+ 5c8:	9f e0       	ldi	r25, 0x0F	; 15
+ 5ca:	01 97       	sbiw	r24, 0x01	; 1
+ 5cc:	f1 f7       	brne	.-4      	; 0x5ca <_Z13LCD_Initalizev+0xa0>
+ 5ce:	00 c0       	rjmp	.+0      	; 0x5d0 <_Z13LCD_Initalizev+0xa6>
+ 5d0:	00 00       	nop
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 5d2:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 5d4:	81 e0       	ldi	r24, 0x01	; 1
+ 5d6:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 5da:	8f e9       	ldi	r24, 0x9F	; 159
+ 5dc:	9f e0       	ldi	r25, 0x0F	; 15
+ 5de:	01 97       	sbiw	r24, 0x01	; 1
+ 5e0:	f1 f7       	brne	.-4      	; 0x5de <_Z13LCD_Initalizev+0xb4>
+ 5e2:	00 c0       	rjmp	.+0      	; 0x5e4 <_Z13LCD_Initalizev+0xba>
+ 5e4:	00 00       	nop
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 5e6:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 5e8:	86 e0       	ldi	r24, 0x06	; 6
+ 5ea:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 5ee:	8f e9       	ldi	r24, 0x9F	; 159
+ 5f0:	9f e0       	ldi	r25, 0x0F	; 15
+ 5f2:	01 97       	sbiw	r24, 0x01	; 1
+ 5f4:	f1 f7       	brne	.-4      	; 0x5f2 <_Z13LCD_Initalizev+0xc8>
+ 5f6:	00 c0       	rjmp	.+0      	; 0x5f8 <_Z13LCD_Initalizev+0xce>
+ 5f8:	00 00       	nop
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 5fa:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 5fc:	8c e0       	ldi	r24, 0x0C	; 12
+ 5fe:	0c 94 73 01 	jmp	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+
+00000602 <_Z13RegisterTasksv>:
+		elapsedTime++;
+}
+
+void RegisterTasks()
+{
+	taskName.currentMethod = LedBlinkPerDelayVariableMs;
+ 602:	86 e5       	ldi	r24, 0x56	; 86
+ 604:	90 e0       	ldi	r25, 0x00	; 0
+ 606:	90 93 18 01 	sts	0x0118, r25
+ 60a:	80 93 17 01 	sts	0x0117, r24
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ 60e:	80 91 1c 01 	lds	r24, 0x011C
+ 612:	90 91 1d 01 	lds	r25, 0x011D
+ 616:	00 97       	sbiw	r24, 0x00	; 0
+ 618:	09 f4       	brne	.+2      	; 0x61c <_Z13RegisterTasksv+0x1a>
+ 61a:	cc c0       	rjmp	.+408    	; 0x7b4 <_Z13RegisterTasksv+0x1b2>
+ 61c:	20 91 1e 01 	lds	r18, 0x011E
+ 620:	30 91 1f 01 	lds	r19, 0x011F
+ 624:	23 2b       	or	r18, r19
+ 626:	09 f4       	brne	.+2      	; 0x62a <_Z13RegisterTasksv+0x28>
+ 628:	df c0       	rjmp	.+446    	; 0x7e8 <_Z13RegisterTasksv+0x1e6>
+ 62a:	20 91 20 01 	lds	r18, 0x0120
+ 62e:	30 91 21 01 	lds	r19, 0x0121
+ 632:	23 2b       	or	r18, r19
+ 634:	09 f4       	brne	.+2      	; 0x638 <_Z13RegisterTasksv+0x36>
+ 636:	de c0       	rjmp	.+444    	; 0x7f4 <_Z13RegisterTasksv+0x1f2>
+ 638:	20 91 22 01 	lds	r18, 0x0122
+ 63c:	30 91 23 01 	lds	r19, 0x0123
+ 640:	23 2b       	or	r18, r19
+ 642:	09 f4       	brne	.+2      	; 0x646 <_Z13RegisterTasksv+0x44>
+ 644:	e0 c0       	rjmp	.+448    	; 0x806 <_Z13RegisterTasksv+0x204>
+ 646:	20 91 24 01 	lds	r18, 0x0124
+ 64a:	30 91 25 01 	lds	r19, 0x0125
+ 64e:	23 2b       	or	r18, r19
+ 650:	09 f4       	brne	.+2      	; 0x654 <_Z13RegisterTasksv+0x52>
+ 652:	e2 c0       	rjmp	.+452    	; 0x818 <_Z13RegisterTasksv+0x216>
+ 654:	20 91 26 01 	lds	r18, 0x0126
+ 658:	30 91 27 01 	lds	r19, 0x0127
+ 65c:	23 2b       	or	r18, r19
+ 65e:	09 f4       	brne	.+2      	; 0x662 <_Z13RegisterTasksv+0x60>
+ 660:	e1 c0       	rjmp	.+450    	; 0x824 <_Z13RegisterTasksv+0x222>
+ 662:	20 91 28 01 	lds	r18, 0x0128
+ 666:	30 91 29 01 	lds	r19, 0x0129
+ 66a:	23 2b       	or	r18, r19
+ 66c:	09 f4       	brne	.+2      	; 0x670 <_Z13RegisterTasksv+0x6e>
+ 66e:	e9 c0       	rjmp	.+466    	; 0x842 <_Z13RegisterTasksv+0x240>
+ 670:	20 91 2a 01 	lds	r18, 0x012A
+ 674:	30 91 2b 01 	lds	r19, 0x012B
+ 678:	23 2b       	or	r18, r19
+ 67a:	09 f4       	brne	.+2      	; 0x67e <_Z13RegisterTasksv+0x7c>
+ 67c:	e8 c0       	rjmp	.+464    	; 0x84e <_Z13RegisterTasksv+0x24c>
+	Taskmanager.Register(taskName);
+
+	keyboardTask.currentMethod = KeyboardHandler;
+ 67e:	25 e7       	ldi	r18, 0x75	; 117
+ 680:	30 e0       	ldi	r19, 0x00	; 0
+ 682:	30 93 14 01 	sts	0x0114, r19
+ 686:	20 93 13 01 	sts	0x0113, r18
+ 68a:	00 97       	sbiw	r24, 0x00	; 0
+ 68c:	09 f4       	brne	.+2      	; 0x690 <_Z13RegisterTasksv+0x8e>
+ 68e:	7e c0       	rjmp	.+252    	; 0x78c <_Z13RegisterTasksv+0x18a>
+ 690:	20 91 1e 01 	lds	r18, 0x011E
+ 694:	30 91 1f 01 	lds	r19, 0x011F
+ 698:	23 2b       	or	r18, r19
+ 69a:	09 f4       	brne	.+2      	; 0x69e <_Z13RegisterTasksv+0x9c>
+ 69c:	a2 c0       	rjmp	.+324    	; 0x7e2 <_Z13RegisterTasksv+0x1e0>
+ 69e:	20 91 20 01 	lds	r18, 0x0120
+ 6a2:	30 91 21 01 	lds	r19, 0x0121
+ 6a6:	23 2b       	or	r18, r19
+ 6a8:	09 f4       	brne	.+2      	; 0x6ac <_Z13RegisterTasksv+0xaa>
+ 6aa:	a7 c0       	rjmp	.+334    	; 0x7fa <_Z13RegisterTasksv+0x1f8>
+ 6ac:	20 91 22 01 	lds	r18, 0x0122
+ 6b0:	30 91 23 01 	lds	r19, 0x0123
+ 6b4:	23 2b       	or	r18, r19
+ 6b6:	09 f4       	brne	.+2      	; 0x6ba <_Z13RegisterTasksv+0xb8>
+ 6b8:	a9 c0       	rjmp	.+338    	; 0x80c <_Z13RegisterTasksv+0x20a>
+ 6ba:	20 91 24 01 	lds	r18, 0x0124
+ 6be:	30 91 25 01 	lds	r19, 0x0125
+ 6c2:	23 2b       	or	r18, r19
+ 6c4:	09 f4       	brne	.+2      	; 0x6c8 <_Z13RegisterTasksv+0xc6>
+ 6c6:	ab c0       	rjmp	.+342    	; 0x81e <_Z13RegisterTasksv+0x21c>
+ 6c8:	20 91 26 01 	lds	r18, 0x0126
+ 6cc:	30 91 27 01 	lds	r19, 0x0127
+ 6d0:	23 2b       	or	r18, r19
+ 6d2:	09 f4       	brne	.+2      	; 0x6d6 <_Z13RegisterTasksv+0xd4>
+ 6d4:	aa c0       	rjmp	.+340    	; 0x82a <_Z13RegisterTasksv+0x228>
+ 6d6:	20 91 28 01 	lds	r18, 0x0128
+ 6da:	30 91 29 01 	lds	r19, 0x0129
+ 6de:	23 2b       	or	r18, r19
+ 6e0:	09 f4       	brne	.+2      	; 0x6e4 <_Z13RegisterTasksv+0xe2>
+ 6e2:	ac c0       	rjmp	.+344    	; 0x83c <_Z13RegisterTasksv+0x23a>
+ 6e4:	20 91 2a 01 	lds	r18, 0x012A
+ 6e8:	30 91 2b 01 	lds	r19, 0x012B
+ 6ec:	23 2b       	or	r18, r19
+ 6ee:	09 f4       	brne	.+2      	; 0x6f2 <_Z13RegisterTasksv+0xf0>
+ 6f0:	ab c0       	rjmp	.+342    	; 0x848 <_Z13RegisterTasksv+0x246>
+	Taskmanager.Register(keyboardTask);
+
+	Leds.currentMethod = Led;
+ 6f2:	2f ed       	ldi	r18, 0xDF	; 223
+ 6f4:	31 e0       	ldi	r19, 0x01	; 1
+ 6f6:	30 93 10 01 	sts	0x0110, r19
+ 6fa:	20 93 0f 01 	sts	0x010F, r18
+ 6fe:	89 2b       	or	r24, r25
+ 700:	09 f4       	brne	.+2      	; 0x704 <_Z13RegisterTasksv+0x102>
+ 702:	41 c0       	rjmp	.+130    	; 0x786 <_Z13RegisterTasksv+0x184>
+ 704:	80 91 1e 01 	lds	r24, 0x011E
+ 708:	90 91 1f 01 	lds	r25, 0x011F
+ 70c:	89 2b       	or	r24, r25
+ 70e:	09 f4       	brne	.+2      	; 0x712 <_Z13RegisterTasksv+0x110>
+ 710:	65 c0       	rjmp	.+202    	; 0x7dc <_Z13RegisterTasksv+0x1da>
+ 712:	80 91 20 01 	lds	r24, 0x0120
+ 716:	90 91 21 01 	lds	r25, 0x0121
+ 71a:	89 2b       	or	r24, r25
+ 71c:	09 f4       	brne	.+2      	; 0x720 <_Z13RegisterTasksv+0x11e>
+ 71e:	67 c0       	rjmp	.+206    	; 0x7ee <_Z13RegisterTasksv+0x1ec>
+ 720:	80 91 22 01 	lds	r24, 0x0122
+ 724:	90 91 23 01 	lds	r25, 0x0123
+ 728:	89 2b       	or	r24, r25
+ 72a:	09 f4       	brne	.+2      	; 0x72e <_Z13RegisterTasksv+0x12c>
+ 72c:	69 c0       	rjmp	.+210    	; 0x800 <_Z13RegisterTasksv+0x1fe>
+ 72e:	80 91 24 01 	lds	r24, 0x0124
+ 732:	90 91 25 01 	lds	r25, 0x0125
+ 736:	89 2b       	or	r24, r25
+ 738:	09 f4       	brne	.+2      	; 0x73c <_Z13RegisterTasksv+0x13a>
+ 73a:	6b c0       	rjmp	.+214    	; 0x812 <_Z13RegisterTasksv+0x210>
+ 73c:	80 91 26 01 	lds	r24, 0x0126
+ 740:	90 91 27 01 	lds	r25, 0x0127
+ 744:	89 2b       	or	r24, r25
+ 746:	09 f4       	brne	.+2      	; 0x74a <_Z13RegisterTasksv+0x148>
+ 748:	73 c0       	rjmp	.+230    	; 0x830 <_Z13RegisterTasksv+0x22e>
+ 74a:	80 91 28 01 	lds	r24, 0x0128
+ 74e:	90 91 29 01 	lds	r25, 0x0129
+ 752:	89 2b       	or	r24, r25
+ 754:	09 f4       	brne	.+2      	; 0x758 <_Z13RegisterTasksv+0x156>
+ 756:	6f c0       	rjmp	.+222    	; 0x836 <_Z13RegisterTasksv+0x234>
+ 758:	80 91 2a 01 	lds	r24, 0x012A
+ 75c:	90 91 2b 01 	lds	r25, 0x012B
+ 760:	89 2b       	or	r24, r25
+ 762:	09 f0       	breq	.+2      	; 0x766 <_Z13RegisterTasksv+0x164>
+ 764:	08 95       	ret
+ 766:	87 e0       	ldi	r24, 0x07	; 7
+ 768:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ 76a:	fc 01       	movw	r30, r24
+ 76c:	ee 0f       	add	r30, r30
+ 76e:	ff 1f       	adc	r31, r31
+ 770:	e4 5e       	subi	r30, 0xE4	; 228
+ 772:	fe 4f       	sbci	r31, 0xFE	; 254
+ 774:	2d e0       	ldi	r18, 0x0D	; 13
+ 776:	31 e0       	ldi	r19, 0x01	; 1
+ 778:	31 83       	std	Z+1, r19	; 0x01
+ 77a:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ 77c:	90 93 0e 01 	sts	0x010E, r25
+ 780:	80 93 0d 01 	sts	0x010D, r24
+ 784:	08 95       	ret
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ 786:	80 e0       	ldi	r24, 0x00	; 0
+ 788:	90 e0       	ldi	r25, 0x00	; 0
+ 78a:	ef cf       	rjmp	.-34     	; 0x76a <_Z13RegisterTasksv+0x168>
+ 78c:	80 e0       	ldi	r24, 0x00	; 0
+ 78e:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ 790:	fc 01       	movw	r30, r24
+ 792:	ee 0f       	add	r30, r30
+ 794:	ff 1f       	adc	r31, r31
+ 796:	e4 5e       	subi	r30, 0xE4	; 228
+ 798:	fe 4f       	sbci	r31, 0xFE	; 254
+ 79a:	21 e1       	ldi	r18, 0x11	; 17
+ 79c:	31 e0       	ldi	r19, 0x01	; 1
+ 79e:	31 83       	std	Z+1, r19	; 0x01
+ 7a0:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ 7a2:	90 93 12 01 	sts	0x0112, r25
+ 7a6:	80 93 11 01 	sts	0x0111, r24
+ 7aa:	80 91 1c 01 	lds	r24, 0x011C
+ 7ae:	90 91 1d 01 	lds	r25, 0x011D
+ 7b2:	9f cf       	rjmp	.-194    	; 0x6f2 <_Z13RegisterTasksv+0xf0>
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ 7b4:	80 e0       	ldi	r24, 0x00	; 0
+ 7b6:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ 7b8:	fc 01       	movw	r30, r24
+ 7ba:	ee 0f       	add	r30, r30
+ 7bc:	ff 1f       	adc	r31, r31
+ 7be:	e4 5e       	subi	r30, 0xE4	; 228
+ 7c0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 7c2:	25 e1       	ldi	r18, 0x15	; 21
+ 7c4:	31 e0       	ldi	r19, 0x01	; 1
+ 7c6:	31 83       	std	Z+1, r19	; 0x01
+ 7c8:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ 7ca:	90 93 16 01 	sts	0x0116, r25
+ 7ce:	80 93 15 01 	sts	0x0115, r24
+ 7d2:	80 91 1c 01 	lds	r24, 0x011C
+ 7d6:	90 91 1d 01 	lds	r25, 0x011D
+ 7da:	51 cf       	rjmp	.-350    	; 0x67e <_Z13RegisterTasksv+0x7c>
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ 7dc:	81 e0       	ldi	r24, 0x01	; 1
+ 7de:	90 e0       	ldi	r25, 0x00	; 0
+ 7e0:	c4 cf       	rjmp	.-120    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 7e2:	81 e0       	ldi	r24, 0x01	; 1
+ 7e4:	90 e0       	ldi	r25, 0x00	; 0
+ 7e6:	d4 cf       	rjmp	.-88     	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 7e8:	81 e0       	ldi	r24, 0x01	; 1
+ 7ea:	90 e0       	ldi	r25, 0x00	; 0
+ 7ec:	e5 cf       	rjmp	.-54     	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 7ee:	82 e0       	ldi	r24, 0x02	; 2
+ 7f0:	90 e0       	ldi	r25, 0x00	; 0
+ 7f2:	bb cf       	rjmp	.-138    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 7f4:	82 e0       	ldi	r24, 0x02	; 2
+ 7f6:	90 e0       	ldi	r25, 0x00	; 0
+ 7f8:	df cf       	rjmp	.-66     	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 7fa:	82 e0       	ldi	r24, 0x02	; 2
+ 7fc:	90 e0       	ldi	r25, 0x00	; 0
+ 7fe:	c8 cf       	rjmp	.-112    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 800:	83 e0       	ldi	r24, 0x03	; 3
+ 802:	90 e0       	ldi	r25, 0x00	; 0
+ 804:	b2 cf       	rjmp	.-156    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 806:	83 e0       	ldi	r24, 0x03	; 3
+ 808:	90 e0       	ldi	r25, 0x00	; 0
+ 80a:	d6 cf       	rjmp	.-84     	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 80c:	83 e0       	ldi	r24, 0x03	; 3
+ 80e:	90 e0       	ldi	r25, 0x00	; 0
+ 810:	bf cf       	rjmp	.-130    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 812:	84 e0       	ldi	r24, 0x04	; 4
+ 814:	90 e0       	ldi	r25, 0x00	; 0
+ 816:	a9 cf       	rjmp	.-174    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 818:	84 e0       	ldi	r24, 0x04	; 4
+ 81a:	90 e0       	ldi	r25, 0x00	; 0
+ 81c:	cd cf       	rjmp	.-102    	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 81e:	84 e0       	ldi	r24, 0x04	; 4
+ 820:	90 e0       	ldi	r25, 0x00	; 0
+ 822:	b6 cf       	rjmp	.-148    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 824:	85 e0       	ldi	r24, 0x05	; 5
+ 826:	90 e0       	ldi	r25, 0x00	; 0
+ 828:	c7 cf       	rjmp	.-114    	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 82a:	85 e0       	ldi	r24, 0x05	; 5
+ 82c:	90 e0       	ldi	r25, 0x00	; 0
+ 82e:	b0 cf       	rjmp	.-160    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 830:	85 e0       	ldi	r24, 0x05	; 5
+ 832:	90 e0       	ldi	r25, 0x00	; 0
+ 834:	9a cf       	rjmp	.-204    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 836:	86 e0       	ldi	r24, 0x06	; 6
+ 838:	90 e0       	ldi	r25, 0x00	; 0
+ 83a:	97 cf       	rjmp	.-210    	; 0x76a <_Z13RegisterTasksv+0x168>
+ 83c:	86 e0       	ldi	r24, 0x06	; 6
+ 83e:	90 e0       	ldi	r25, 0x00	; 0
+ 840:	a7 cf       	rjmp	.-178    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 842:	86 e0       	ldi	r24, 0x06	; 6
+ 844:	90 e0       	ldi	r25, 0x00	; 0
+ 846:	b8 cf       	rjmp	.-144    	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+ 848:	87 e0       	ldi	r24, 0x07	; 7
+ 84a:	90 e0       	ldi	r25, 0x00	; 0
+ 84c:	a1 cf       	rjmp	.-190    	; 0x790 <_Z13RegisterTasksv+0x18e>
+ 84e:	87 e0       	ldi	r24, 0x07	; 7
+ 850:	90 e0       	ldi	r25, 0x00	; 0
+ 852:	b2 cf       	rjmp	.-156    	; 0x7b8 <_Z13RegisterTasksv+0x1b6>
+
+00000854 <_Z9LCD_Setupv>:
+	Timer0::SetPrescaler(Timer0::Prescalers::Prescaler_256);
+	sei();
+}
+void LCD_Setup() 
+{
+	LCD_Initalize();
+ 854:	0e 94 95 02 	call	0x52a	; 0x52a <_Z13LCD_Initalizev>
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 858:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 85a:	82 e0       	ldi	r24, 0x02	; 2
+ 85c:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 860:	8f e3       	ldi	r24, 0x3F	; 63
+ 862:	9f e1       	ldi	r25, 0x1F	; 31
+ 864:	01 97       	sbiw	r24, 0x01	; 1
+ 866:	f1 f7       	brne	.-4      	; 0x864 <_Z9LCD_Setupv+0x10>
+ 868:	00 c0       	rjmp	.+0      	; 0x86a <_Z9LCD_Setupv+0x16>
+ 86a:	00 00       	nop
+ 86c:	08 95       	ret
+
+0000086e <_Z17InitializeProgramv>:
+ 86e:	0e 94 95 02 	call	0x52a	; 0x52a <_Z13LCD_Initalizev>
+// Funkcja zapisu rozkazu do wyœwietlacza
+//
+//-------------------------------------------------------------------------------------------------
+void LCD_WriteCommand(unsigned char commandToWrite)
+{
+LCD_RS_PORT &= ~LCD_RS;
+ 872:	ae 98       	cbi	0x15, 6	; 21
+_LCD_Write(commandToWrite);
+ 874:	82 e0       	ldi	r24, 0x02	; 2
+ 876:	0e 94 73 01 	call	0x2e6	; 0x2e6 <_Z10_LCD_Writeh>
+ 87a:	8f e3       	ldi	r24, 0x3F	; 63
+ 87c:	9f e1       	ldi	r25, 0x1F	; 31
+ 87e:	01 97       	sbiw	r24, 0x01	; 1
+ 880:	f1 f7       	brne	.-4      	; 0x87e <_Z17InitializeProgramv+0x10>
+ 882:	00 c0       	rjmp	.+0      	; 0x884 <_Z17InitializeProgramv+0x16>
+ 884:	00 00       	nop
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+            }
+
+            void AsInput()
+            {
+                *(uint8_t volatile*)DdrAddress &= !(1 << NOPin);
+ 886:	81 b3       	in	r24, 0x11	; 17
+ 888:	11 ba       	out	0x11, r1	; 17
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ 88a:	97 9a       	sbi	0x12, 7	; 18
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+            }
+
+            void FastAsOutput()
+            {
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+ 88c:	87 b3       	in	r24, 0x17	; 23
+ 88e:	87 60       	ori	r24, 0x07	; 7
+ 890:	87 bb       	out	0x17, r24	; 23
+            public:
+	 #ifdef __FAST__PIN__OPERATIONS__ENABLE
+	  #pragma message "This Fast operations are compiler optimalizable	!"
+	 void FastSet()
+            {
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+ 892:	88 b3       	in	r24, 0x18	; 24
+ 894:	87 60       	ori	r24, 0x07	; 7
+ 896:	88 bb       	out	0x18, r24	; 24
+		elapsedTime++;
+}
+
+void RegisterTasks()
+{
+	taskName.currentMethod = LedBlinkPerDelayVariableMs;
+ 898:	86 e5       	ldi	r24, 0x56	; 86
+ 89a:	90 e0       	ldi	r25, 0x00	; 0
+ 89c:	90 93 18 01 	sts	0x0118, r25
+ 8a0:	80 93 17 01 	sts	0x0117, r24
+ 8a4:	80 91 1c 01 	lds	r24, 0x011C
+ 8a8:	90 91 1d 01 	lds	r25, 0x011D
+ 8ac:	00 97       	sbiw	r24, 0x00	; 0
+ 8ae:	09 f4       	brne	.+2      	; 0x8b2 <_Z17InitializeProgramv+0x44>
+ 8b0:	bb c0       	rjmp	.+374    	; 0xa28 <_Z17InitializeProgramv+0x1ba>
+ 8b2:	20 91 1e 01 	lds	r18, 0x011E
+ 8b6:	30 91 1f 01 	lds	r19, 0x011F
+ 8ba:	23 2b       	or	r18, r19
+ 8bc:	09 f4       	brne	.+2      	; 0x8c0 <_Z17InitializeProgramv+0x52>
+ 8be:	ef c0       	rjmp	.+478    	; 0xa9e <_Z17InitializeProgramv+0x230>
+ 8c0:	20 91 20 01 	lds	r18, 0x0120
+ 8c4:	30 91 21 01 	lds	r19, 0x0121
+ 8c8:	23 2b       	or	r18, r19
+ 8ca:	09 f4       	brne	.+2      	; 0x8ce <_Z17InitializeProgramv+0x60>
+ 8cc:	ee c0       	rjmp	.+476    	; 0xaaa <_Z17InitializeProgramv+0x23c>
+ 8ce:	20 91 22 01 	lds	r18, 0x0122
+ 8d2:	30 91 23 01 	lds	r19, 0x0123
+ 8d6:	23 2b       	or	r18, r19
+ 8d8:	09 f4       	brne	.+2      	; 0x8dc <_Z17InitializeProgramv+0x6e>
+ 8da:	f3 c0       	rjmp	.+486    	; 0xac2 <_Z17InitializeProgramv+0x254>
+ 8dc:	20 91 24 01 	lds	r18, 0x0124
+ 8e0:	30 91 25 01 	lds	r19, 0x0125
+ 8e4:	23 2b       	or	r18, r19
+ 8e6:	09 f4       	brne	.+2      	; 0x8ea <_Z17InitializeProgramv+0x7c>
+ 8e8:	f2 c0       	rjmp	.+484    	; 0xace <_Z17InitializeProgramv+0x260>
+ 8ea:	20 91 26 01 	lds	r18, 0x0126
+ 8ee:	30 91 27 01 	lds	r19, 0x0127
+ 8f2:	23 2b       	or	r18, r19
+ 8f4:	09 f4       	brne	.+2      	; 0x8f8 <_Z17InitializeProgramv+0x8a>
+ 8f6:	f7 c0       	rjmp	.+494    	; 0xae6 <_Z17InitializeProgramv+0x278>
+ 8f8:	20 91 28 01 	lds	r18, 0x0128
+ 8fc:	30 91 29 01 	lds	r19, 0x0129
+ 900:	23 2b       	or	r18, r19
+ 902:	09 f4       	brne	.+2      	; 0x906 <_Z17InitializeProgramv+0x98>
+ 904:	f9 c0       	rjmp	.+498    	; 0xaf8 <_Z17InitializeProgramv+0x28a>
+ 906:	20 91 2a 01 	lds	r18, 0x012A
+ 90a:	30 91 2b 01 	lds	r19, 0x012B
+ 90e:	23 2b       	or	r18, r19
+ 910:	09 f4       	brne	.+2      	; 0x914 <_Z17InitializeProgramv+0xa6>
+ 912:	f8 c0       	rjmp	.+496    	; 0xb04 <_Z17InitializeProgramv+0x296>
+	Taskmanager.Register(taskName);
+
+	keyboardTask.currentMethod = KeyboardHandler;
+ 914:	25 e7       	ldi	r18, 0x75	; 117
+ 916:	30 e0       	ldi	r19, 0x00	; 0
+ 918:	30 93 14 01 	sts	0x0114, r19
+ 91c:	20 93 13 01 	sts	0x0113, r18
+ 920:	00 97       	sbiw	r24, 0x00	; 0
+ 922:	09 f4       	brne	.+2      	; 0x926 <_Z17InitializeProgramv+0xb8>
+ 924:	a5 c0       	rjmp	.+330    	; 0xa70 <_Z17InitializeProgramv+0x202>
+ 926:	20 91 1e 01 	lds	r18, 0x011E
+ 92a:	30 91 1f 01 	lds	r19, 0x011F
+ 92e:	23 2b       	or	r18, r19
+ 930:	09 f4       	brne	.+2      	; 0x934 <_Z17InitializeProgramv+0xc6>
+ 932:	b8 c0       	rjmp	.+368    	; 0xaa4 <_Z17InitializeProgramv+0x236>
+ 934:	20 91 20 01 	lds	r18, 0x0120
+ 938:	30 91 21 01 	lds	r19, 0x0121
+ 93c:	23 2b       	or	r18, r19
+ 93e:	09 f4       	brne	.+2      	; 0x942 <_Z17InitializeProgramv+0xd4>
+ 940:	b7 c0       	rjmp	.+366    	; 0xab0 <_Z17InitializeProgramv+0x242>
+ 942:	20 91 22 01 	lds	r18, 0x0122
+ 946:	30 91 23 01 	lds	r19, 0x0123
+ 94a:	23 2b       	or	r18, r19
+ 94c:	09 f4       	brne	.+2      	; 0x950 <_Z17InitializeProgramv+0xe2>
+ 94e:	bc c0       	rjmp	.+376    	; 0xac8 <_Z17InitializeProgramv+0x25a>
+ 950:	20 91 24 01 	lds	r18, 0x0124
+ 954:	30 91 25 01 	lds	r19, 0x0125
+ 958:	23 2b       	or	r18, r19
+ 95a:	09 f4       	brne	.+2      	; 0x95e <_Z17InitializeProgramv+0xf0>
+ 95c:	bb c0       	rjmp	.+374    	; 0xad4 <_Z17InitializeProgramv+0x266>
+ 95e:	20 91 26 01 	lds	r18, 0x0126
+ 962:	30 91 27 01 	lds	r19, 0x0127
+ 966:	23 2b       	or	r18, r19
+ 968:	09 f4       	brne	.+2      	; 0x96c <_Z17InitializeProgramv+0xfe>
+ 96a:	c0 c0       	rjmp	.+384    	; 0xaec <_Z17InitializeProgramv+0x27e>
+ 96c:	20 91 28 01 	lds	r18, 0x0128
+ 970:	30 91 29 01 	lds	r19, 0x0129
+ 974:	23 2b       	or	r18, r19
+ 976:	09 f4       	brne	.+2      	; 0x97a <_Z17InitializeProgramv+0x10c>
+ 978:	c2 c0       	rjmp	.+388    	; 0xafe <_Z17InitializeProgramv+0x290>
+ 97a:	20 91 2a 01 	lds	r18, 0x012A
+ 97e:	30 91 2b 01 	lds	r19, 0x012B
+ 982:	23 2b       	or	r18, r19
+ 984:	09 f4       	brne	.+2      	; 0x988 <_Z17InitializeProgramv+0x11a>
+ 986:	c4 c0       	rjmp	.+392    	; 0xb10 <_Z17InitializeProgramv+0x2a2>
+	Taskmanager.Register(keyboardTask);
+
+	Leds.currentMethod = Led;
+ 988:	2f ed       	ldi	r18, 0xDF	; 223
+ 98a:	31 e0       	ldi	r19, 0x01	; 1
+ 98c:	30 93 10 01 	sts	0x0110, r19
+ 990:	20 93 0f 01 	sts	0x010F, r18
+ 994:	89 2b       	or	r24, r25
+ 996:	09 f4       	brne	.+2      	; 0x99a <_Z17InitializeProgramv+0x12c>
+ 998:	5b c0       	rjmp	.+182    	; 0xa50 <_Z17InitializeProgramv+0x1e2>
+ 99a:	80 91 1e 01 	lds	r24, 0x011E
+ 99e:	90 91 1f 01 	lds	r25, 0x011F
+ 9a2:	89 2b       	or	r24, r25
+ 9a4:	09 f4       	brne	.+2      	; 0x9a8 <_Z17InitializeProgramv+0x13a>
+ 9a6:	78 c0       	rjmp	.+240    	; 0xa98 <_Z17InitializeProgramv+0x22a>
+ 9a8:	80 91 20 01 	lds	r24, 0x0120
+ 9ac:	90 91 21 01 	lds	r25, 0x0121
+ 9b0:	89 2b       	or	r24, r25
+ 9b2:	09 f4       	brne	.+2      	; 0x9b6 <_Z17InitializeProgramv+0x148>
+ 9b4:	80 c0       	rjmp	.+256    	; 0xab6 <_Z17InitializeProgramv+0x248>
+ 9b6:	80 91 22 01 	lds	r24, 0x0122
+ 9ba:	90 91 23 01 	lds	r25, 0x0123
+ 9be:	89 2b       	or	r24, r25
+ 9c0:	09 f4       	brne	.+2      	; 0x9c4 <_Z17InitializeProgramv+0x156>
+ 9c2:	7c c0       	rjmp	.+248    	; 0xabc <_Z17InitializeProgramv+0x24e>
+ 9c4:	80 91 24 01 	lds	r24, 0x0124
+ 9c8:	90 91 25 01 	lds	r25, 0x0125
+ 9cc:	89 2b       	or	r24, r25
+ 9ce:	09 f4       	brne	.+2      	; 0x9d2 <_Z17InitializeProgramv+0x164>
+ 9d0:	84 c0       	rjmp	.+264    	; 0xada <_Z17InitializeProgramv+0x26c>
+ 9d2:	80 91 26 01 	lds	r24, 0x0126
+ 9d6:	90 91 27 01 	lds	r25, 0x0127
+ 9da:	89 2b       	or	r24, r25
+ 9dc:	09 f4       	brne	.+2      	; 0x9e0 <_Z17InitializeProgramv+0x172>
+ 9de:	80 c0       	rjmp	.+256    	; 0xae0 <_Z17InitializeProgramv+0x272>
+ 9e0:	80 91 28 01 	lds	r24, 0x0128
+ 9e4:	90 91 29 01 	lds	r25, 0x0129
+ 9e8:	89 2b       	or	r24, r25
+ 9ea:	09 f4       	brne	.+2      	; 0x9ee <_Z17InitializeProgramv+0x180>
+ 9ec:	82 c0       	rjmp	.+260    	; 0xaf2 <_Z17InitializeProgramv+0x284>
+ 9ee:	80 91 2a 01 	lds	r24, 0x012A
+ 9f2:	90 91 2b 01 	lds	r25, 0x012B
+ 9f6:	89 2b       	or	r24, r25
+ 9f8:	09 f4       	brne	.+2      	; 0x9fc <_Z17InitializeProgramv+0x18e>
+ 9fa:	87 c0       	rjmp	.+270    	; 0xb0a <_Z17InitializeProgramv+0x29c>
+	class Timer0
+	{
+	public:
+		void static SetCompareValue(uint8_t compareRegisterValue)
+		{
+			OCR0 = compareRegisterValue;
+ 9fc:	87 e0       	ldi	r24, 0x07	; 7
+ 9fe:	8c bf       	out	0x3c, r24	; 60
+			SET(TCCR0,(uint8_t)prescaler);
+		}
+
+		static void WaveFormMode(WaveForms waveForms)
+		{
+			CLEAR(TCCR0,(1<<WGM01)||(1<<WGM00));
+ a00:	83 b7       	in	r24, 0x33	; 51
+ a02:	8e 7f       	andi	r24, 0xFE	; 254
+ a04:	83 bf       	out	0x33, r24	; 51
+			SET(TCCR0,(uint8_t)waveForms);
+ a06:	83 b7       	in	r24, 0x33	; 51
+ a08:	88 60       	ori	r24, 0x08	; 8
+ a0a:	83 bf       	out	0x33, r24	; 51
+			AllBitsSet = CompareAndOverFlowInterrupts
+		};
+
+		volatile void static SetInterrupts(InterruptMask interrupt)
+		{
+			CLEAR(TIMSK,(TOIE0,OCIE0));
+ a0c:	89 b7       	in	r24, 0x39	; 57
+ a0e:	8e 7f       	andi	r24, 0xFE	; 254
+ a10:	89 bf       	out	0x39, r24	; 57
+			TIMSK |= interrupt;
+ a12:	89 b7       	in	r24, 0x39	; 57
+ a14:	82 60       	ori	r24, 0x02	; 2
+ a16:	89 bf       	out	0x39, r24	; 57
+			SET(SFIOR,(1<<PSR10));
+		}
+
+		static void SetPrescaler(Prescalers prescaler)
+		{
+			CLEAR(TCCR0,(uint8_t)Prescalers::AllBitsSet);
+ a18:	83 b7       	in	r24, 0x33	; 51
+ a1a:	8e 7f       	andi	r24, 0xFE	; 254
+ a1c:	83 bf       	out	0x33, r24	; 51
+			SET(TCCR0,(uint8_t)prescaler);
+ a1e:	83 b7       	in	r24, 0x33	; 51
+ a20:	84 60       	ori	r24, 0x04	; 4
+ a22:	83 bf       	out	0x33, r24	; 51
+  //2000 instructions per task - 1ms task resolution CAREFULL: Exit mail will erase interrupt SREG
+	Timer0::SetCompareValue(7); // Why 7? When we get 16mhz, divide it 8 (8 tasks), we get 2mhz, divide it 8*256 its 2048 - 1 ms -
+	Timer0::WaveFormMode(Timer0::WaveForms::CTC);
+	Timer0::SetInterrupts(CodeEasyAvr::Timer0::CompareMatchInterrupt);
+	Timer0::SetPrescaler(Timer0::Prescalers::Prescaler_256);
+	sei();
+ a24:	78 94       	sei
+ a26:	08 95       	ret
+ a28:	80 e0       	ldi	r24, 0x00	; 0
+ a2a:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ a2c:	fc 01       	movw	r30, r24
+ a2e:	ee 0f       	add	r30, r30
+ a30:	ff 1f       	adc	r31, r31
+ a32:	e4 5e       	subi	r30, 0xE4	; 228
+ a34:	fe 4f       	sbci	r31, 0xFE	; 254
+ a36:	25 e1       	ldi	r18, 0x15	; 21
+ a38:	31 e0       	ldi	r19, 0x01	; 1
+ a3a:	31 83       	std	Z+1, r19	; 0x01
+ a3c:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ a3e:	90 93 16 01 	sts	0x0116, r25
+ a42:	80 93 15 01 	sts	0x0115, r24
+ a46:	80 91 1c 01 	lds	r24, 0x011C
+ a4a:	90 91 1d 01 	lds	r25, 0x011D
+ a4e:	62 cf       	rjmp	.-316    	; 0x914 <_Z17InitializeProgramv+0xa6>
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ a50:	80 e0       	ldi	r24, 0x00	; 0
+ a52:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ a54:	fc 01       	movw	r30, r24
+ a56:	ee 0f       	add	r30, r30
+ a58:	ff 1f       	adc	r31, r31
+ a5a:	e4 5e       	subi	r30, 0xE4	; 228
+ a5c:	fe 4f       	sbci	r31, 0xFE	; 254
+ a5e:	2d e0       	ldi	r18, 0x0D	; 13
+ a60:	31 e0       	ldi	r19, 0x01	; 1
+ a62:	31 83       	std	Z+1, r19	; 0x01
+ a64:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ a66:	90 93 0e 01 	sts	0x010E, r25
+ a6a:	80 93 0d 01 	sts	0x010D, r24
+ a6e:	c6 cf       	rjmp	.-116    	; 0x9fc <_Z17InitializeProgramv+0x18e>
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ a70:	80 e0       	ldi	r24, 0x00	; 0
+ a72:	90 e0       	ldi	r25, 0x00	; 0
+	}
+}
+
+void UnsafeRegister(Task& task, uint8_t positionIndicator)
+{
+	tasks[positionIndicator] = &task;
+ a74:	fc 01       	movw	r30, r24
+ a76:	ee 0f       	add	r30, r30
+ a78:	ff 1f       	adc	r31, r31
+ a7a:	e4 5e       	subi	r30, 0xE4	; 228
+ a7c:	fe 4f       	sbci	r31, 0xFE	; 254
+ a7e:	21 e1       	ldi	r18, 0x11	; 17
+ a80:	31 e0       	ldi	r19, 0x01	; 1
+ a82:	31 83       	std	Z+1, r19	; 0x01
+ a84:	20 83       	st	Z, r18
+	task.AlocateNumber = positionIndicator;
+ a86:	90 93 12 01 	sts	0x0112, r25
+ a8a:	80 93 11 01 	sts	0x0111, r24
+ a8e:	80 91 1c 01 	lds	r24, 0x011C
+ a92:	90 91 1d 01 	lds	r25, 0x011D
+ a96:	78 cf       	rjmp	.-272    	; 0x988 <_Z17InitializeProgramv+0x11a>
+{
+	uint8_t firstFreeIndicator = 0;
+
+	while (firstFreeIndicator < NumberOfTasks)
+	{
+		if (tasks[firstFreeIndicator] == nullptr)
+ a98:	81 e0       	ldi	r24, 0x01	; 1
+ a9a:	90 e0       	ldi	r25, 0x00	; 0
+ a9c:	db cf       	rjmp	.-74     	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ a9e:	81 e0       	ldi	r24, 0x01	; 1
+ aa0:	90 e0       	ldi	r25, 0x00	; 0
+ aa2:	c4 cf       	rjmp	.-120    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ aa4:	81 e0       	ldi	r24, 0x01	; 1
+ aa6:	90 e0       	ldi	r25, 0x00	; 0
+ aa8:	e5 cf       	rjmp	.-54     	; 0xa74 <_Z17InitializeProgramv+0x206>
+ aaa:	82 e0       	ldi	r24, 0x02	; 2
+ aac:	90 e0       	ldi	r25, 0x00	; 0
+ aae:	be cf       	rjmp	.-132    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ ab0:	82 e0       	ldi	r24, 0x02	; 2
+ ab2:	90 e0       	ldi	r25, 0x00	; 0
+ ab4:	df cf       	rjmp	.-66     	; 0xa74 <_Z17InitializeProgramv+0x206>
+ ab6:	82 e0       	ldi	r24, 0x02	; 2
+ ab8:	90 e0       	ldi	r25, 0x00	; 0
+ aba:	cc cf       	rjmp	.-104    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ abc:	83 e0       	ldi	r24, 0x03	; 3
+ abe:	90 e0       	ldi	r25, 0x00	; 0
+ ac0:	c9 cf       	rjmp	.-110    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ ac2:	83 e0       	ldi	r24, 0x03	; 3
+ ac4:	90 e0       	ldi	r25, 0x00	; 0
+ ac6:	b2 cf       	rjmp	.-156    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ ac8:	83 e0       	ldi	r24, 0x03	; 3
+ aca:	90 e0       	ldi	r25, 0x00	; 0
+ acc:	d3 cf       	rjmp	.-90     	; 0xa74 <_Z17InitializeProgramv+0x206>
+ ace:	84 e0       	ldi	r24, 0x04	; 4
+ ad0:	90 e0       	ldi	r25, 0x00	; 0
+ ad2:	ac cf       	rjmp	.-168    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ ad4:	84 e0       	ldi	r24, 0x04	; 4
+ ad6:	90 e0       	ldi	r25, 0x00	; 0
+ ad8:	cd cf       	rjmp	.-102    	; 0xa74 <_Z17InitializeProgramv+0x206>
+ ada:	84 e0       	ldi	r24, 0x04	; 4
+ adc:	90 e0       	ldi	r25, 0x00	; 0
+ ade:	ba cf       	rjmp	.-140    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ ae0:	85 e0       	ldi	r24, 0x05	; 5
+ ae2:	90 e0       	ldi	r25, 0x00	; 0
+ ae4:	b7 cf       	rjmp	.-146    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ ae6:	85 e0       	ldi	r24, 0x05	; 5
+ ae8:	90 e0       	ldi	r25, 0x00	; 0
+ aea:	a0 cf       	rjmp	.-192    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ aec:	85 e0       	ldi	r24, 0x05	; 5
+ aee:	90 e0       	ldi	r25, 0x00	; 0
+ af0:	c1 cf       	rjmp	.-126    	; 0xa74 <_Z17InitializeProgramv+0x206>
+ af2:	86 e0       	ldi	r24, 0x06	; 6
+ af4:	90 e0       	ldi	r25, 0x00	; 0
+ af6:	ae cf       	rjmp	.-164    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ af8:	86 e0       	ldi	r24, 0x06	; 6
+ afa:	90 e0       	ldi	r25, 0x00	; 0
+ afc:	97 cf       	rjmp	.-210    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ afe:	86 e0       	ldi	r24, 0x06	; 6
+ b00:	90 e0       	ldi	r25, 0x00	; 0
+ b02:	b8 cf       	rjmp	.-144    	; 0xa74 <_Z17InitializeProgramv+0x206>
+ b04:	87 e0       	ldi	r24, 0x07	; 7
+ b06:	90 e0       	ldi	r25, 0x00	; 0
+ b08:	91 cf       	rjmp	.-222    	; 0xa2c <_Z17InitializeProgramv+0x1be>
+ b0a:	87 e0       	ldi	r24, 0x07	; 7
+ b0c:	90 e0       	ldi	r25, 0x00	; 0
+ b0e:	a2 cf       	rjmp	.-188    	; 0xa54 <_Z17InitializeProgramv+0x1e6>
+ b10:	87 e0       	ldi	r24, 0x07	; 7
+ b12:	90 e0       	ldi	r25, 0x00	; 0
+ b14:	af cf       	rjmp	.-162    	; 0xa74 <_Z17InitializeProgramv+0x206>
+
+00000b16 <_ZN4PinSILh56ELh54ELh55ELh1EE6ToggleEv>:
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+ b16:	98 b3       	in	r25, 0x18	; 24
+ b18:	82 e0       	ldi	r24, 0x02	; 2
+ b1a:	89 27       	eor	r24, r25
+ b1c:	88 bb       	out	0x18, r24	; 24
+ b1e:	08 95       	ret
+
+00000b20 <_ZN4PinSILh56ELh54ELh55ELh1EE3SetEv>:
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ b20:	c1 9a       	sbi	0x18, 1	; 24
+ b22:	08 95       	ret
+
+00000b24 <_ZN4PinSILh56ELh54ELh55ELh2EE6ToggleEv>:
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+ b24:	98 b3       	in	r25, 0x18	; 24
+ b26:	84 e0       	ldi	r24, 0x04	; 4
+ b28:	89 27       	eor	r24, r25
+ b2a:	88 bb       	out	0x18, r24	; 24
+ b2c:	08 95       	ret
+
+00000b2e <_ZN4PinSILh50ELh48ELh49ELh7EE7AsInputEv>:
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+            }
+
+            void AsInput()
+            {
+                *(uint8_t volatile*)DdrAddress &= !(1 << NOPin);
+ b2e:	81 b3       	in	r24, 0x11	; 17
+ b30:	11 ba       	out	0x11, r1	; 17
+ b32:	08 95       	ret
+
+00000b34 <_ZN4PinSILh50ELh48ELh49ELh7EE3SetEv>:
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ b34:	97 9a       	sbi	0x12, 7	; 18
+ b36:	08 95       	ret
+
+00000b38 <_ZN4PinSILh56ELh54ELh55ELh2EE12FastAsOutputEv>:
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+            }
+
+            void FastAsOutput()
+            {
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+ b38:	ba 9a       	sbi	0x17, 2	; 23
+ b3a:	08 95       	ret
+
+00000b3c <_ZN4PinSILh56ELh54ELh55ELh0EE12FastAsOutputEv>:
+ b3c:	b8 9a       	sbi	0x17, 0	; 23
+ b3e:	08 95       	ret
+
+00000b40 <_ZN4PinSILh56ELh54ELh55ELh1EE12FastAsOutputEv>:
+ b40:	b9 9a       	sbi	0x17, 1	; 23
+ b42:	08 95       	ret
+
+00000b44 <_ZN4PinSILh56ELh54ELh55ELh2EE7FastSetEv>:
+            public:
+	 #ifdef __FAST__PIN__OPERATIONS__ENABLE
+	  #pragma message "This Fast operations are compiler optimalizable	!"
+	 void FastSet()
+            {
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+ b44:	c2 9a       	sbi	0x18, 2	; 24
+ b46:	08 95       	ret
+
+00000b48 <_ZN4PinSILh56ELh54ELh55ELh0EE7FastSetEv>:
+ b48:	c0 9a       	sbi	0x18, 0	; 24
+ b4a:	08 95       	ret
+
+00000b4c <_ZN4PinSILh56ELh54ELh55ELh1EE7FastSetEv>:
+ b4c:	c1 9a       	sbi	0x18, 1	; 24
+ b4e:	08 95       	ret
+
+00000b50 <_ZN4PinSILh56ELh54ELh55ELh1EED1Ev>:
+	virtual ~PinSBase(){}
+
+};
+
+ template<const volatile uint8_t PortAddress,const volatile uint8_t PinAddress,const volatile uint8_t DdrAddress,const volatile uint8_t NOPin>
+ class PinS : public PinSBase
+ b50:	08 95       	ret
+
+00000b52 <_ZN4PinSILh56ELh54ELh55ELh0EED1Ev>:
+ b52:	08 95       	ret
+
+00000b54 <_ZN4PinSILh56ELh54ELh55ELh2EED1Ev>:
+ b54:	08 95       	ret
+
+00000b56 <_ZN4PinSILh50ELh48ELh49ELh7EED1Ev>:
+ b56:	08 95       	ret
+
+00000b58 <_ZN4PinSILh56ELh54ELh55ELh1EE9FastClearEv>:
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+            }
+
+            void FastClear()
+            {
+                (*(uint8_t*)PortAddress) &= ~(1 << NOPin);
+ b58:	c1 98       	cbi	0x18, 1	; 24
+ b5a:	08 95       	ret
+
+00000b5c <_ZN4PinSILh56ELh54ELh55ELh1EE10FastToggleEv>:
+            }
+
+            void FastToggle()
+            {
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+ b5c:	98 b3       	in	r25, 0x18	; 24
+ b5e:	82 e0       	ldi	r24, 0x02	; 2
+ b60:	89 27       	eor	r24, r25
+ b62:	88 bb       	out	0x18, r24	; 24
+ b64:	08 95       	ret
+
+00000b66 <_ZN4PinSILh56ELh54ELh55ELh1EE11FastAsInputEv>:
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+            }
+
+            void FastAsInput()
+            {
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+ b66:	17 ba       	out	0x17, r1	; 23
+ b68:	08 95       	ret
+
+00000b6a <_ZN4PinSILh56ELh54ELh55ELh1EE5ClearEv>:
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ b6a:	c1 98       	cbi	0x18, 1	; 24
+ b6c:	08 95       	ret
+
+00000b6e <_ZN4PinSILh56ELh54ELh55ELh1EE8AsOutputEv>:
+                return ((*(uint8_t volatile*)PinAddress >> NOPin) &1);
+            }
+
+            void AsOutput()
+            {
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+ b6e:	b9 9a       	sbi	0x17, 1	; 23
+ b70:	08 95       	ret
+
+00000b72 <_ZN4PinSILh56ELh54ELh55ELh1EE7AsInputEv>:
+            }
+
+            void AsInput()
+            {
+                *(uint8_t volatile*)DdrAddress &= !(1 << NOPin);
+ b72:	87 b3       	in	r24, 0x17	; 23
+ b74:	17 ba       	out	0x17, r1	; 23
+ b76:	08 95       	ret
+
+00000b78 <_ZN4PinSILh56ELh54ELh55ELh0EE9FastClearEv>:
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+            }
+
+            void FastClear()
+            {
+                (*(uint8_t*)PortAddress) &= ~(1 << NOPin);
+ b78:	c0 98       	cbi	0x18, 0	; 24
+ b7a:	08 95       	ret
+
+00000b7c <_ZN4PinSILh56ELh54ELh55ELh0EE10FastToggleEv>:
+            }
+
+            void FastToggle()
+            {
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+ b7c:	98 b3       	in	r25, 0x18	; 24
+ b7e:	81 e0       	ldi	r24, 0x01	; 1
+ b80:	89 27       	eor	r24, r25
+ b82:	88 bb       	out	0x18, r24	; 24
+ b84:	08 95       	ret
+
+00000b86 <_ZN4PinSILh56ELh54ELh55ELh0EE11FastAsInputEv>:
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+            }
+
+            void FastAsInput()
+            {
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+ b86:	17 ba       	out	0x17, r1	; 23
+ b88:	08 95       	ret
+
+00000b8a <_ZN4PinSILh56ELh54ELh55ELh0EE3SetEv>:
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ b8a:	c0 9a       	sbi	0x18, 0	; 24
+ b8c:	08 95       	ret
+
+00000b8e <_ZN4PinSILh56ELh54ELh55ELh0EE5ClearEv>:
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ b8e:	c0 98       	cbi	0x18, 0	; 24
+ b90:	08 95       	ret
+
+00000b92 <_ZN4PinSILh56ELh54ELh55ELh0EE6ToggleEv>:
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+ b92:	98 b3       	in	r25, 0x18	; 24
+ b94:	81 e0       	ldi	r24, 0x01	; 1
+ b96:	89 27       	eor	r24, r25
+ b98:	88 bb       	out	0x18, r24	; 24
+ b9a:	08 95       	ret
+
+00000b9c <_ZN4PinSILh56ELh54ELh55ELh0EE8AsOutputEv>:
+                return ((*(uint8_t volatile*)PinAddress >> NOPin) &1);
+            }
+
+            void AsOutput()
+            {
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+ b9c:	b8 9a       	sbi	0x17, 0	; 23
+ b9e:	08 95       	ret
+
+00000ba0 <_ZN4PinSILh56ELh54ELh55ELh0EE7AsInputEv>:
+            }
+
+            void AsInput()
+            {
+                *(uint8_t volatile*)DdrAddress &= !(1 << NOPin);
+ ba0:	87 b3       	in	r24, 0x17	; 23
+ ba2:	17 ba       	out	0x17, r1	; 23
+ ba4:	08 95       	ret
+
+00000ba6 <_ZN4PinSILh56ELh54ELh55ELh2EE9FastClearEv>:
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+            }
+
+            void FastClear()
+            {
+                (*(uint8_t*)PortAddress) &= ~(1 << NOPin);
+ ba6:	c2 98       	cbi	0x18, 2	; 24
+ ba8:	08 95       	ret
+
+00000baa <_ZN4PinSILh56ELh54ELh55ELh2EE10FastToggleEv>:
+            }
+
+            void FastToggle()
+            {
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+ baa:	98 b3       	in	r25, 0x18	; 24
+ bac:	84 e0       	ldi	r24, 0x04	; 4
+ bae:	89 27       	eor	r24, r25
+ bb0:	88 bb       	out	0x18, r24	; 24
+ bb2:	08 95       	ret
+
+00000bb4 <_ZN4PinSILh56ELh54ELh55ELh2EE11FastAsInputEv>:
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+            }
+
+            void FastAsInput()
+            {
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+ bb4:	17 ba       	out	0x17, r1	; 23
+ bb6:	08 95       	ret
+
+00000bb8 <_ZN4PinSILh56ELh54ELh55ELh2EE3SetEv>:
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ bb8:	c2 9a       	sbi	0x18, 2	; 24
+ bba:	08 95       	ret
+
+00000bbc <_ZN4PinSILh56ELh54ELh55ELh2EE5ClearEv>:
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ bbc:	c2 98       	cbi	0x18, 2	; 24
+ bbe:	08 95       	ret
+
+00000bc0 <_ZN4PinSILh56ELh54ELh55ELh2EE8AsOutputEv>:
+                return ((*(uint8_t volatile*)PinAddress >> NOPin) &1);
+            }
+
+            void AsOutput()
+            {
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+ bc0:	ba 9a       	sbi	0x17, 2	; 23
+ bc2:	08 95       	ret
+
+00000bc4 <_ZN4PinSILh56ELh54ELh55ELh2EE7AsInputEv>:
+            }
+
+            void AsInput()
+            {
+                *(uint8_t volatile*)DdrAddress &= !(1 << NOPin);
+ bc4:	87 b3       	in	r24, 0x17	; 23
+ bc6:	17 ba       	out	0x17, r1	; 23
+ bc8:	08 95       	ret
+
+00000bca <_ZN4PinSILh50ELh48ELh49ELh7EE7FastSetEv>:
+            public:
+	 #ifdef __FAST__PIN__OPERATIONS__ENABLE
+	  #pragma message "This Fast operations are compiler optimalizable	!"
+	 void FastSet()
+            {
+                (*(uint8_t*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm when only 1 set, at other case compiler will make it 3x1 cycles asm instrucions
+ bca:	97 9a       	sbi	0x12, 7	; 18
+ bcc:	08 95       	ret
+
+00000bce <_ZN4PinSILh50ELh48ELh49ELh7EE9FastClearEv>:
+            }
+
+            void FastClear()
+            {
+                (*(uint8_t*)PortAddress) &= ~(1 << NOPin);
+ bce:	97 98       	cbi	0x12, 7	; 18
+ bd0:	08 95       	ret
+
+00000bd2 <_ZN4PinSILh50ELh48ELh49ELh7EE10FastToggleEv>:
+            }
+
+            void FastToggle()
+            {
+                *(uint8_t*)PortAddress ^= (1 << NOPin);
+ bd2:	82 b3       	in	r24, 0x12	; 18
+ bd4:	80 58       	subi	r24, 0x80	; 128
+ bd6:	82 bb       	out	0x12, r24	; 18
+ bd8:	08 95       	ret
+
+00000bda <_ZN4PinSILh50ELh48ELh49ELh7EE12FastAsOutputEv>:
+            }
+
+            void FastAsOutput()
+            {
+                *(uint8_t*)DdrAddress |= (1 << NOPin);
+ bda:	8f 9a       	sbi	0x11, 7	; 17
+ bdc:	08 95       	ret
+
+00000bde <_ZN4PinSILh50ELh48ELh49ELh7EE11FastAsInputEv>:
+            }
+
+            void FastAsInput()
+            {
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+ bde:	11 ba       	out	0x11, r1	; 17
+ be0:	08 95       	ret
+
+00000be2 <_ZN4PinSILh50ELh48ELh49ELh7EE5ClearEv>:
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ be2:	97 98       	cbi	0x12, 7	; 18
+ be4:	08 95       	ret
+
+00000be6 <_ZN4PinSILh50ELh48ELh49ELh7EE6ToggleEv>:
+            }
+
+            void Toggle()
+            {
+                *(uint8_t volatile*)PortAddress ^= (1 << NOPin);
+ be6:	82 b3       	in	r24, 0x12	; 18
+ be8:	80 58       	subi	r24, 0x80	; 128
+ bea:	82 bb       	out	0x12, r24	; 18
+ bec:	08 95       	ret
+
+00000bee <_ZN4PinSILh50ELh48ELh49ELh7EE8AsOutputEv>:
+                return ((*(uint8_t volatile*)PinAddress >> NOPin) &1);
+            }
+
+            void AsOutput()
+            {
+                *(uint8_t volatile *)DdrAddress |= (1 << NOPin);
+ bee:	8f 9a       	sbi	0x11, 7	; 17
+ bf0:	08 95       	ret
+
+00000bf2 <_ZN4PinSILh50ELh48ELh49ELh7EED0Ev>:
+ bf2:	0c 94 24 07 	jmp	0xe48	; 0xe48 <free>
+
+00000bf6 <_ZN4PinSILh56ELh54ELh55ELh2EED0Ev>:
+ bf6:	0c 94 24 07 	jmp	0xe48	; 0xe48 <free>
+
+00000bfa <_ZN4PinSILh56ELh54ELh55ELh0EED0Ev>:
+ bfa:	0c 94 24 07 	jmp	0xe48	; 0xe48 <free>
+
+00000bfe <_ZN4PinSILh56ELh54ELh55ELh1EED0Ev>:
+ bfe:	0c 94 24 07 	jmp	0xe48	; 0xe48 <free>
+
+00000c02 <_ZN4PinSILh56ELh54ELh55ELh1EE7BoolSetEb>:
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c02:	dc 01       	movw	r26, r24
+ c04:	ed 91       	ld	r30, X+
+ c06:	fc 91       	ld	r31, X
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+            }
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+ c08:	61 11       	cpse	r22, r1
+ c0a:	0a c0       	rjmp	.+20     	; 0xc20 <_ZN4PinSILh56ELh54ELh55ELh1EE7BoolSetEb+0x1e>
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c0c:	06 84       	ldd	r0, Z+14	; 0x0e
+ c0e:	f7 85       	ldd	r31, Z+15	; 0x0f
+ c10:	e0 2d       	mov	r30, r0
+ c12:	b5 e0       	ldi	r27, 0x05	; 5
+ c14:	e5 3b       	cpi	r30, 0xB5	; 181
+ c16:	fb 07       	cpc	r31, r27
+ c18:	11 f4       	brne	.+4      	; 0xc1e <_ZN4PinSILh56ELh54ELh55ELh1EE7BoolSetEb+0x1c>
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ c1a:	c1 98       	cbi	0x18, 1	; 24
+ c1c:	08 95       	ret
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c1e:	09 94       	ijmp
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c20:	04 84       	ldd	r0, Z+12	; 0x0c
+ c22:	f5 85       	ldd	r31, Z+13	; 0x0d
+ c24:	e0 2d       	mov	r30, r0
+ c26:	b5 e0       	ldi	r27, 0x05	; 5
+ c28:	e0 39       	cpi	r30, 0x90	; 144
+ c2a:	fb 07       	cpc	r31, r27
+ c2c:	c1 f7       	brne	.-16     	; 0xc1e <_ZN4PinSILh56ELh54ELh55ELh1EE7BoolSetEb+0x1c>
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ c2e:	c1 9a       	sbi	0x18, 1	; 24
+ c30:	08 95       	ret
+
+00000c32 <_ZN4PinSILh56ELh54ELh55ELh0EE7BoolSetEb>:
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c32:	dc 01       	movw	r26, r24
+ c34:	ed 91       	ld	r30, X+
+ c36:	fc 91       	ld	r31, X
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+            }
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+ c38:	61 11       	cpse	r22, r1
+ c3a:	0a c0       	rjmp	.+20     	; 0xc50 <_ZN4PinSILh56ELh54ELh55ELh0EE7BoolSetEb+0x1e>
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c3c:	06 84       	ldd	r0, Z+14	; 0x0e
+ c3e:	f7 85       	ldd	r31, Z+15	; 0x0f
+ c40:	e0 2d       	mov	r30, r0
+ c42:	b5 e0       	ldi	r27, 0x05	; 5
+ c44:	e7 3c       	cpi	r30, 0xC7	; 199
+ c46:	fb 07       	cpc	r31, r27
+ c48:	11 f4       	brne	.+4      	; 0xc4e <_ZN4PinSILh56ELh54ELh55ELh0EE7BoolSetEb+0x1c>
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ c4a:	c0 98       	cbi	0x18, 0	; 24
+ c4c:	08 95       	ret
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c4e:	09 94       	ijmp
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c50:	04 84       	ldd	r0, Z+12	; 0x0c
+ c52:	f5 85       	ldd	r31, Z+13	; 0x0d
+ c54:	e0 2d       	mov	r30, r0
+ c56:	b5 e0       	ldi	r27, 0x05	; 5
+ c58:	e5 3c       	cpi	r30, 0xC5	; 197
+ c5a:	fb 07       	cpc	r31, r27
+ c5c:	c1 f7       	brne	.-16     	; 0xc4e <_ZN4PinSILh56ELh54ELh55ELh0EE7BoolSetEb+0x1c>
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ c5e:	c0 9a       	sbi	0x18, 0	; 24
+ c60:	08 95       	ret
+
+00000c62 <_ZN4PinSILh56ELh54ELh55ELh2EE7BoolSetEb>:
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c62:	dc 01       	movw	r26, r24
+ c64:	ed 91       	ld	r30, X+
+ c66:	fc 91       	ld	r31, X
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+            }
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+ c68:	61 11       	cpse	r22, r1
+ c6a:	0a c0       	rjmp	.+20     	; 0xc80 <_ZN4PinSILh56ELh54ELh55ELh2EE7BoolSetEb+0x1e>
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c6c:	06 84       	ldd	r0, Z+14	; 0x0e
+ c6e:	f7 85       	ldd	r31, Z+15	; 0x0f
+ c70:	e0 2d       	mov	r30, r0
+ c72:	b5 e0       	ldi	r27, 0x05	; 5
+ c74:	ee 3d       	cpi	r30, 0xDE	; 222
+ c76:	fb 07       	cpc	r31, r27
+ c78:	11 f4       	brne	.+4      	; 0xc7e <_ZN4PinSILh56ELh54ELh55ELh2EE7BoolSetEb+0x1c>
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ c7a:	c2 98       	cbi	0x18, 2	; 24
+ c7c:	08 95       	ret
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c7e:	09 94       	ijmp
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c80:	04 84       	ldd	r0, Z+12	; 0x0c
+ c82:	f5 85       	ldd	r31, Z+13	; 0x0d
+ c84:	e0 2d       	mov	r30, r0
+ c86:	b5 e0       	ldi	r27, 0x05	; 5
+ c88:	ec 3d       	cpi	r30, 0xDC	; 220
+ c8a:	fb 07       	cpc	r31, r27
+ c8c:	c1 f7       	brne	.-16     	; 0xc7e <_ZN4PinSILh56ELh54ELh55ELh2EE7BoolSetEb+0x1c>
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ c8e:	c2 9a       	sbi	0x18, 2	; 24
+ c90:	08 95       	ret
+
+00000c92 <_ZN4PinSILh50ELh48ELh49ELh7EE7BoolSetEb>:
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ c92:	dc 01       	movw	r26, r24
+ c94:	ed 91       	ld	r30, X+
+ c96:	fc 91       	ld	r31, X
+                *(uint8_t*)DdrAddress &= !(1 << NOPin);
+            }
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+ c98:	61 11       	cpse	r22, r1
+ c9a:	0a c0       	rjmp	.+20     	; 0xcb0 <_ZN4PinSILh50ELh48ELh49ELh7EE7BoolSetEb+0x1e>
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ c9c:	06 84       	ldd	r0, Z+14	; 0x0e
+ c9e:	f7 85       	ldd	r31, Z+15	; 0x0f
+ ca0:	e0 2d       	mov	r30, r0
+ ca2:	b5 e0       	ldi	r27, 0x05	; 5
+ ca4:	e1 3f       	cpi	r30, 0xF1	; 241
+ ca6:	fb 07       	cpc	r31, r27
+ ca8:	11 f4       	brne	.+4      	; 0xcae <_ZN4PinSILh50ELh48ELh49ELh7EE7BoolSetEb+0x1c>
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+            }
+
+            void Clear()
+            {
+                (*(uint8_t volatile*)PortAddress) &= ~(1 << NOPin);
+ caa:	97 98       	cbi	0x12, 7	; 18
+ cac:	08 95       	ret
+				{
+					Set();
+				}
+				else
+				{
+					Clear();
+ cae:	09 94       	ijmp
+#endif
+			void BoolSet(bool value)
+			{	
+				if (value)
+				{
+					Set();
+ cb0:	04 84       	ldd	r0, Z+12	; 0x0c
+ cb2:	f5 85       	ldd	r31, Z+13	; 0x0d
+ cb4:	e0 2d       	mov	r30, r0
+ cb6:	b5 e0       	ldi	r27, 0x05	; 5
+ cb8:	ea 39       	cpi	r30, 0x9A	; 154
+ cba:	fb 07       	cpc	r31, r27
+ cbc:	c1 f7       	brne	.-16     	; 0xcae <_ZN4PinSILh50ELh48ELh49ELh7EE7BoolSetEb+0x1c>
+				}
+			}
+
+            void Set()
+            {
+                (*(uint8_t volatile*)PortAddress) |= (1 << NOPin); //Result is single SBI() in asm (2 cycles)
+ cbe:	97 9a       	sbi	0x12, 7	; 18
+ cc0:	08 95       	ret
+
+00000cc2 <main>:
+	EnableAsync();
+}
+
+int main()
+{
+	InitializeProgram();
+ cc2:	0e 94 37 04 	call	0x86e	; 0x86e <_Z17InitializeProgramv>
+	YellowLed.FastSet();
+	RegisterTasks();
+	EnableAsync();
+}
+
+int main()
+ cc6:	ff cf       	rjmp	.-2      	; 0xcc6 <main+0x4>
+
+00000cc8 <_GLOBAL__sub_I__Znwj>:
+	Task* tasks[NumberOfTasks];
+	uint8_t currentTaskNumber;
+	public:
+TaskManager()
+{
+	currentTaskNumber = 0;
+ cc8:	ec e1       	ldi	r30, 0x1C	; 28
+ cca:	f1 e0       	ldi	r31, 0x01	; 1
+ ccc:	10 8a       	std	Z+16, r1	; 0x10
+ cce:	80 e1       	ldi	r24, 0x10	; 16
+ cd0:	df 01       	movw	r26, r30
+ cd2:	1d 92       	st	X+, r1
+ cd4:	8a 95       	dec	r24
+ cd6:	e9 f7       	brne	.-6      	; 0xcd2 <_GLOBAL__sub_I__Znwj+0xa>
+
+class Task;
+
+typedef void(*Action)(Task*);
+
+class Task
+ cd8:	10 92 18 01 	sts	0x0118, r1
+ cdc:	10 92 17 01 	sts	0x0117, r1
+ ce0:	10 92 14 01 	sts	0x0114, r1
+ ce4:	10 92 13 01 	sts	0x0113, r1
+ ce8:	10 92 10 01 	sts	0x0110, r1
+ cec:	10 92 0f 01 	sts	0x010F, r1
+ cf0:	08 95       	ret
+
+00000cf2 <_GLOBAL__sub_D__Znwj>:
+{
+	InitializeProgram();
+	while(1)
+	{	
+	}
+}	//Important, if program get out of main SREG bit will be cleared!
+ cf2:	08 95       	ret
+
+00000cf4 <__umulhisi3>:
+ cf4:	a2 9f       	mul	r26, r18
+ cf6:	b0 01       	movw	r22, r0
+ cf8:	b3 9f       	mul	r27, r19
+ cfa:	c0 01       	movw	r24, r0
+ cfc:	a3 9f       	mul	r26, r19
+ cfe:	70 0d       	add	r23, r0
+ d00:	81 1d       	adc	r24, r1
+ d02:	11 24       	eor	r1, r1
+ d04:	91 1d       	adc	r25, r1
+ d06:	b2 9f       	mul	r27, r18
+ d08:	70 0d       	add	r23, r0
+ d0a:	81 1d       	adc	r24, r1
+ d0c:	11 24       	eor	r1, r1
+ d0e:	91 1d       	adc	r25, r1
+ d10:	08 95       	ret
+
+00000d12 <__tablejump2__>:
+ d12:	ee 0f       	add	r30, r30
+ d14:	ff 1f       	adc	r31, r31
+ d16:	05 90       	lpm	r0, Z+
+ d18:	f4 91       	lpm	r31, Z
+ d1a:	e0 2d       	mov	r30, r0
+ d1c:	09 94       	ijmp
+
+00000d1e <malloc>:
+ d1e:	cf 93       	push	r28
+ d20:	df 93       	push	r29
+ d22:	82 30       	cpi	r24, 0x02	; 2
+ d24:	91 05       	cpc	r25, r1
+ d26:	10 f4       	brcc	.+4      	; 0xd2c <malloc+0xe>
+ d28:	82 e0       	ldi	r24, 0x02	; 2
+ d2a:	90 e0       	ldi	r25, 0x00	; 0
+ d2c:	e0 91 2f 01 	lds	r30, 0x012F
+ d30:	f0 91 30 01 	lds	r31, 0x0130
+ d34:	20 e0       	ldi	r18, 0x00	; 0
+ d36:	30 e0       	ldi	r19, 0x00	; 0
+ d38:	c0 e0       	ldi	r28, 0x00	; 0
+ d3a:	d0 e0       	ldi	r29, 0x00	; 0
+ d3c:	30 97       	sbiw	r30, 0x00	; 0
+ d3e:	11 f1       	breq	.+68     	; 0xd84 <malloc+0x66>
+ d40:	40 81       	ld	r20, Z
+ d42:	51 81       	ldd	r21, Z+1	; 0x01
+ d44:	48 17       	cp	r20, r24
+ d46:	59 07       	cpc	r21, r25
+ d48:	c0 f0       	brcs	.+48     	; 0xd7a <malloc+0x5c>
+ d4a:	48 17       	cp	r20, r24
+ d4c:	59 07       	cpc	r21, r25
+ d4e:	61 f4       	brne	.+24     	; 0xd68 <malloc+0x4a>
+ d50:	82 81       	ldd	r24, Z+2	; 0x02
+ d52:	93 81       	ldd	r25, Z+3	; 0x03
+ d54:	20 97       	sbiw	r28, 0x00	; 0
+ d56:	19 f0       	breq	.+6      	; 0xd5e <malloc+0x40>
+ d58:	9b 83       	std	Y+3, r25	; 0x03
+ d5a:	8a 83       	std	Y+2, r24	; 0x02
+ d5c:	2b c0       	rjmp	.+86     	; 0xdb4 <malloc+0x96>
+ d5e:	90 93 30 01 	sts	0x0130, r25
+ d62:	80 93 2f 01 	sts	0x012F, r24
+ d66:	26 c0       	rjmp	.+76     	; 0xdb4 <malloc+0x96>
+ d68:	21 15       	cp	r18, r1
+ d6a:	31 05       	cpc	r19, r1
+ d6c:	19 f0       	breq	.+6      	; 0xd74 <malloc+0x56>
+ d6e:	42 17       	cp	r20, r18
+ d70:	53 07       	cpc	r21, r19
+ d72:	18 f4       	brcc	.+6      	; 0xd7a <malloc+0x5c>
+ d74:	9a 01       	movw	r18, r20
+ d76:	be 01       	movw	r22, r28
+ d78:	df 01       	movw	r26, r30
+ d7a:	ef 01       	movw	r28, r30
+ d7c:	02 80       	ldd	r0, Z+2	; 0x02
+ d7e:	f3 81       	ldd	r31, Z+3	; 0x03
+ d80:	e0 2d       	mov	r30, r0
+ d82:	dc cf       	rjmp	.-72     	; 0xd3c <malloc+0x1e>
+ d84:	21 15       	cp	r18, r1
+ d86:	31 05       	cpc	r19, r1
+ d88:	09 f1       	breq	.+66     	; 0xdcc <malloc+0xae>
+ d8a:	28 1b       	sub	r18, r24
+ d8c:	39 0b       	sbc	r19, r25
+ d8e:	24 30       	cpi	r18, 0x04	; 4
+ d90:	31 05       	cpc	r19, r1
+ d92:	90 f4       	brcc	.+36     	; 0xdb8 <malloc+0x9a>
+ d94:	12 96       	adiw	r26, 0x02	; 2
+ d96:	8d 91       	ld	r24, X+
+ d98:	9c 91       	ld	r25, X
+ d9a:	13 97       	sbiw	r26, 0x03	; 3
+ d9c:	61 15       	cp	r22, r1
+ d9e:	71 05       	cpc	r23, r1
+ da0:	21 f0       	breq	.+8      	; 0xdaa <malloc+0x8c>
+ da2:	fb 01       	movw	r30, r22
+ da4:	93 83       	std	Z+3, r25	; 0x03
+ da6:	82 83       	std	Z+2, r24	; 0x02
+ da8:	04 c0       	rjmp	.+8      	; 0xdb2 <malloc+0x94>
+ daa:	90 93 30 01 	sts	0x0130, r25
+ dae:	80 93 2f 01 	sts	0x012F, r24
+ db2:	fd 01       	movw	r30, r26
+ db4:	32 96       	adiw	r30, 0x02	; 2
+ db6:	44 c0       	rjmp	.+136    	; 0xe40 <malloc+0x122>
+ db8:	fd 01       	movw	r30, r26
+ dba:	e2 0f       	add	r30, r18
+ dbc:	f3 1f       	adc	r31, r19
+ dbe:	81 93       	st	Z+, r24
+ dc0:	91 93       	st	Z+, r25
+ dc2:	22 50       	subi	r18, 0x02	; 2
+ dc4:	31 09       	sbc	r19, r1
+ dc6:	2d 93       	st	X+, r18
+ dc8:	3c 93       	st	X, r19
+ dca:	3a c0       	rjmp	.+116    	; 0xe40 <malloc+0x122>
+ dcc:	20 91 2d 01 	lds	r18, 0x012D
+ dd0:	30 91 2e 01 	lds	r19, 0x012E
+ dd4:	23 2b       	or	r18, r19
+ dd6:	41 f4       	brne	.+16     	; 0xde8 <malloc+0xca>
+ dd8:	20 91 8e 00 	lds	r18, 0x008E
+ ddc:	30 91 8f 00 	lds	r19, 0x008F
+ de0:	30 93 2e 01 	sts	0x012E, r19
+ de4:	20 93 2d 01 	sts	0x012D, r18
+ de8:	20 91 8c 00 	lds	r18, 0x008C
+ dec:	30 91 8d 00 	lds	r19, 0x008D
+ df0:	21 15       	cp	r18, r1
+ df2:	31 05       	cpc	r19, r1
+ df4:	41 f4       	brne	.+16     	; 0xe06 <malloc+0xe8>
+ df6:	2d b7       	in	r18, 0x3d	; 61
+ df8:	3e b7       	in	r19, 0x3e	; 62
+ dfa:	40 91 90 00 	lds	r20, 0x0090
+ dfe:	50 91 91 00 	lds	r21, 0x0091
+ e02:	24 1b       	sub	r18, r20
+ e04:	35 0b       	sbc	r19, r21
+ e06:	e0 91 2d 01 	lds	r30, 0x012D
+ e0a:	f0 91 2e 01 	lds	r31, 0x012E
+ e0e:	e2 17       	cp	r30, r18
+ e10:	f3 07       	cpc	r31, r19
+ e12:	a0 f4       	brcc	.+40     	; 0xe3c <malloc+0x11e>
+ e14:	2e 1b       	sub	r18, r30
+ e16:	3f 0b       	sbc	r19, r31
+ e18:	28 17       	cp	r18, r24
+ e1a:	39 07       	cpc	r19, r25
+ e1c:	78 f0       	brcs	.+30     	; 0xe3c <malloc+0x11e>
+ e1e:	ac 01       	movw	r20, r24
+ e20:	4e 5f       	subi	r20, 0xFE	; 254
+ e22:	5f 4f       	sbci	r21, 0xFF	; 255
+ e24:	24 17       	cp	r18, r20
+ e26:	35 07       	cpc	r19, r21
+ e28:	48 f0       	brcs	.+18     	; 0xe3c <malloc+0x11e>
+ e2a:	4e 0f       	add	r20, r30
+ e2c:	5f 1f       	adc	r21, r31
+ e2e:	50 93 2e 01 	sts	0x012E, r21
+ e32:	40 93 2d 01 	sts	0x012D, r20
+ e36:	81 93       	st	Z+, r24
+ e38:	91 93       	st	Z+, r25
+ e3a:	02 c0       	rjmp	.+4      	; 0xe40 <malloc+0x122>
+ e3c:	e0 e0       	ldi	r30, 0x00	; 0
+ e3e:	f0 e0       	ldi	r31, 0x00	; 0
+ e40:	cf 01       	movw	r24, r30
+ e42:	df 91       	pop	r29
+ e44:	cf 91       	pop	r28
+ e46:	08 95       	ret
+
+00000e48 <free>:
+ e48:	0f 93       	push	r16
+ e4a:	1f 93       	push	r17
+ e4c:	cf 93       	push	r28
+ e4e:	df 93       	push	r29
+ e50:	00 97       	sbiw	r24, 0x00	; 0
+ e52:	09 f4       	brne	.+2      	; 0xe56 <free+0xe>
+ e54:	8c c0       	rjmp	.+280    	; 0xf6e <free+0x126>
+ e56:	fc 01       	movw	r30, r24
+ e58:	32 97       	sbiw	r30, 0x02	; 2
+ e5a:	13 82       	std	Z+3, r1	; 0x03
+ e5c:	12 82       	std	Z+2, r1	; 0x02
+ e5e:	00 91 2f 01 	lds	r16, 0x012F
+ e62:	10 91 30 01 	lds	r17, 0x0130
+ e66:	01 15       	cp	r16, r1
+ e68:	11 05       	cpc	r17, r1
+ e6a:	81 f4       	brne	.+32     	; 0xe8c <free+0x44>
+ e6c:	20 81       	ld	r18, Z
+ e6e:	31 81       	ldd	r19, Z+1	; 0x01
+ e70:	82 0f       	add	r24, r18
+ e72:	93 1f       	adc	r25, r19
+ e74:	20 91 2d 01 	lds	r18, 0x012D
+ e78:	30 91 2e 01 	lds	r19, 0x012E
+ e7c:	28 17       	cp	r18, r24
+ e7e:	39 07       	cpc	r19, r25
+ e80:	79 f5       	brne	.+94     	; 0xee0 <free+0x98>
+ e82:	f0 93 2e 01 	sts	0x012E, r31
+ e86:	e0 93 2d 01 	sts	0x012D, r30
+ e8a:	71 c0       	rjmp	.+226    	; 0xf6e <free+0x126>
+ e8c:	d8 01       	movw	r26, r16
+ e8e:	40 e0       	ldi	r20, 0x00	; 0
+ e90:	50 e0       	ldi	r21, 0x00	; 0
+ e92:	ae 17       	cp	r26, r30
+ e94:	bf 07       	cpc	r27, r31
+ e96:	50 f4       	brcc	.+20     	; 0xeac <free+0x64>
+ e98:	12 96       	adiw	r26, 0x02	; 2
+ e9a:	2d 91       	ld	r18, X+
+ e9c:	3c 91       	ld	r19, X
+ e9e:	13 97       	sbiw	r26, 0x03	; 3
+ ea0:	ad 01       	movw	r20, r26
+ ea2:	21 15       	cp	r18, r1
+ ea4:	31 05       	cpc	r19, r1
+ ea6:	09 f1       	breq	.+66     	; 0xeea <free+0xa2>
+ ea8:	d9 01       	movw	r26, r18
+ eaa:	f3 cf       	rjmp	.-26     	; 0xe92 <free+0x4a>
+ eac:	9d 01       	movw	r18, r26
+ eae:	da 01       	movw	r26, r20
+ eb0:	33 83       	std	Z+3, r19	; 0x03
+ eb2:	22 83       	std	Z+2, r18	; 0x02
+ eb4:	60 81       	ld	r22, Z
+ eb6:	71 81       	ldd	r23, Z+1	; 0x01
+ eb8:	86 0f       	add	r24, r22
+ eba:	97 1f       	adc	r25, r23
+ ebc:	82 17       	cp	r24, r18
+ ebe:	93 07       	cpc	r25, r19
+ ec0:	69 f4       	brne	.+26     	; 0xedc <free+0x94>
+ ec2:	ec 01       	movw	r28, r24
+ ec4:	28 81       	ld	r18, Y
+ ec6:	39 81       	ldd	r19, Y+1	; 0x01
+ ec8:	26 0f       	add	r18, r22
+ eca:	37 1f       	adc	r19, r23
+ ecc:	2e 5f       	subi	r18, 0xFE	; 254
+ ece:	3f 4f       	sbci	r19, 0xFF	; 255
+ ed0:	31 83       	std	Z+1, r19	; 0x01
+ ed2:	20 83       	st	Z, r18
+ ed4:	8a 81       	ldd	r24, Y+2	; 0x02
+ ed6:	9b 81       	ldd	r25, Y+3	; 0x03
+ ed8:	93 83       	std	Z+3, r25	; 0x03
+ eda:	82 83       	std	Z+2, r24	; 0x02
+ edc:	45 2b       	or	r20, r21
+ ede:	29 f4       	brne	.+10     	; 0xeea <free+0xa2>
+ ee0:	f0 93 30 01 	sts	0x0130, r31
+ ee4:	e0 93 2f 01 	sts	0x012F, r30
+ ee8:	42 c0       	rjmp	.+132    	; 0xf6e <free+0x126>
+ eea:	13 96       	adiw	r26, 0x03	; 3
+ eec:	fc 93       	st	X, r31
+ eee:	ee 93       	st	-X, r30
+ ef0:	12 97       	sbiw	r26, 0x02	; 2
+ ef2:	ed 01       	movw	r28, r26
+ ef4:	49 91       	ld	r20, Y+
+ ef6:	59 91       	ld	r21, Y+
+ ef8:	9e 01       	movw	r18, r28
+ efa:	24 0f       	add	r18, r20
+ efc:	35 1f       	adc	r19, r21
+ efe:	e2 17       	cp	r30, r18
+ f00:	f3 07       	cpc	r31, r19
+ f02:	71 f4       	brne	.+28     	; 0xf20 <free+0xd8>
+ f04:	80 81       	ld	r24, Z
+ f06:	91 81       	ldd	r25, Z+1	; 0x01
+ f08:	84 0f       	add	r24, r20
+ f0a:	95 1f       	adc	r25, r21
+ f0c:	02 96       	adiw	r24, 0x02	; 2
+ f0e:	11 96       	adiw	r26, 0x01	; 1
+ f10:	9c 93       	st	X, r25
+ f12:	8e 93       	st	-X, r24
+ f14:	82 81       	ldd	r24, Z+2	; 0x02
+ f16:	93 81       	ldd	r25, Z+3	; 0x03
+ f18:	13 96       	adiw	r26, 0x03	; 3
+ f1a:	9c 93       	st	X, r25
+ f1c:	8e 93       	st	-X, r24
+ f1e:	12 97       	sbiw	r26, 0x02	; 2
+ f20:	e0 e0       	ldi	r30, 0x00	; 0
+ f22:	f0 e0       	ldi	r31, 0x00	; 0
+ f24:	d8 01       	movw	r26, r16
+ f26:	12 96       	adiw	r26, 0x02	; 2
+ f28:	8d 91       	ld	r24, X+
+ f2a:	9c 91       	ld	r25, X
+ f2c:	13 97       	sbiw	r26, 0x03	; 3
+ f2e:	00 97       	sbiw	r24, 0x00	; 0
+ f30:	19 f0       	breq	.+6      	; 0xf38 <free+0xf0>
+ f32:	f8 01       	movw	r30, r16
+ f34:	8c 01       	movw	r16, r24
+ f36:	f6 cf       	rjmp	.-20     	; 0xf24 <free+0xdc>
+ f38:	8d 91       	ld	r24, X+
+ f3a:	9c 91       	ld	r25, X
+ f3c:	98 01       	movw	r18, r16
+ f3e:	2e 5f       	subi	r18, 0xFE	; 254
+ f40:	3f 4f       	sbci	r19, 0xFF	; 255
+ f42:	82 0f       	add	r24, r18
+ f44:	93 1f       	adc	r25, r19
+ f46:	20 91 2d 01 	lds	r18, 0x012D
+ f4a:	30 91 2e 01 	lds	r19, 0x012E
+ f4e:	28 17       	cp	r18, r24
+ f50:	39 07       	cpc	r19, r25
+ f52:	69 f4       	brne	.+26     	; 0xf6e <free+0x126>
+ f54:	30 97       	sbiw	r30, 0x00	; 0
+ f56:	29 f4       	brne	.+10     	; 0xf62 <free+0x11a>
+ f58:	10 92 30 01 	sts	0x0130, r1
+ f5c:	10 92 2f 01 	sts	0x012F, r1
+ f60:	02 c0       	rjmp	.+4      	; 0xf66 <free+0x11e>
+ f62:	13 82       	std	Z+3, r1	; 0x03
+ f64:	12 82       	std	Z+2, r1	; 0x02
+ f66:	10 93 2e 01 	sts	0x012E, r17
+ f6a:	00 93 2d 01 	sts	0x012D, r16
+ f6e:	df 91       	pop	r29
+ f70:	cf 91       	pop	r28
+ f72:	1f 91       	pop	r17
+ f74:	0f 91       	pop	r16
+ f76:	08 95       	ret
+
+00000f78 <__do_global_dtors>:
+ f78:	10 e0       	ldi	r17, 0x00	; 0
+ f7a:	cb e2       	ldi	r28, 0x2B	; 43
+ f7c:	d0 e0       	ldi	r29, 0x00	; 0
+ f7e:	04 c0       	rjmp	.+8      	; 0xf88 <__do_global_dtors+0x10>
+ f80:	fe 01       	movw	r30, r28
+ f82:	0e 94 89 06 	call	0xd12	; 0xd12 <__tablejump2__>
+ f86:	21 96       	adiw	r28, 0x01	; 1
+ f88:	cc 32       	cpi	r28, 0x2C	; 44
+ f8a:	d1 07       	cpc	r29, r17
+ f8c:	c9 f7       	brne	.-14     	; 0xf80 <__do_global_dtors+0x8>
+ f8e:	f8 94       	cli
+
+00000f90 <__stop_program>:
+ f90:	ff cf       	rjmp	.-2      	; 0xf90 <__stop_program>
