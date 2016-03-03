@@ -1,7 +1,5 @@
+#include "Avr5Lib.hpp"
 #pragma message("DO NOT USE TIMER/COUNTER0!! It's managed by Async Static Class - If you change something this definitly wont work! ")
-#pragma message("It's vaild for 16MHZ - if you have less set your own Timer0 Compare Value and Prescaler to get 1/8ms per tick")
-#pragma message("You must implement EnableAsync - template is before end of file MultiTasking.hpp")
-
 //#define StandardTasks
 #define ChainingTasks
 
@@ -11,12 +9,12 @@
 	class TaskManager;
 
 	#ifdef ChainingTasks
-		typedef  void(*Action)(Task*);
+		typedef  void(*Func)(Task*);
 		#include "MainAsyncChainedTaskManager.cpp"
 	#endif
 
 	#ifdef StandardTasks
-		typedef void(*Action)();
+		typedef void(*Func)();
 		#include "MainAsyncTaskManager.cpp"
 	#endif
 	static TaskManager Taskmanager;
@@ -26,7 +24,6 @@
 		Taskmanager.Invoke();
 	}
 #endif 
-
 //Static time
 //8 task + main loop
 //void static MultiTasking::EnableAsync(/*You must enable interrupts )

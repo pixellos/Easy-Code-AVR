@@ -1,9 +1,6 @@
-/*
- * CFile1.c
- *
- * Created: 31/01/2016 22:31:58
- *  Author: rogoz
- */ 
+ #include <stdlib.h>
+ #include <inttypes.h>
+
   template<const volatile uint8_t ,const volatile uint8_t ,const volatile uint8_t ,const volatile uint8_t>
   class PinS;
 

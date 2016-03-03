@@ -5,13 +5,13 @@
 
 class Task;
 
-typedef void(*Action)(Task*);
+typedef void(*Func)(Task*);
 
 class Task
 {
 	public:
 	int AlocateNumber;//Dont set it by hand! only for test purposes
-	Action currentMethod = nullptr;
+	Func currentMethod = nullptr;
 };
 class TaskManager {
 private:
